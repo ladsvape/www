@@ -1,36 +1,33 @@
 # ----
 # Site
 
-title: Fur
+title: Lads Vape Liquids
 url: "https://www.ladsvape.nz/"
 baseurl:
-google_analytics_key:
-google_maps_javascript_api_key:
+google_analytics_key: "UA-99603278-1"
+google_maps_javascript_api_key: "AIzaSyAKfRbVaqwClJeRXqW_MDZ4Ra1iRFXb6xQ"
 snipcart_key: "NWNjOWZhYjctYmE1ZS00MDM3LThkNjUtZmE5M2NiMTU1NzAwNjM2MjYzNTE1MzM5ODg1ODkw"
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
 logo: /siteicon.png
-description: Fur t-shirt store
+description: "Lad's Vape Liquids"
 author:
-  name: fur
-  email: fur@example.com
-  twitter: fur # twitter username without the @ symbol
+  name: Lad's Vape
+  email: ladsvape@gmail.com
 social:
-  name: Fur Template
+  name: David Graeff, Lun Tan
   links:
-    - https://github.com/CloudCannon/fur-jekyll-template
+    - https://facebook.com/ladsvape
 
 # -----
 # Build
 
 collections:
-  staff_members:
-    _hide_content: true
   products:
     _hide_content: true
     output: true
 
-permalink: pretty
+permalink: slug
 
 defaults:
   -
@@ -44,11 +41,6 @@ defaults:
       path: ""
     values:
       layout: "page"
-  -
-    scope:
-      path: "index.html"
-    values:
-      layout: "default"
 
 jekyll-archives:
   enabled:

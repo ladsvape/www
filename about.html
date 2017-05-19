@@ -1,13 +1,13 @@
 ---
 title: Our Story
 hero: Our story
+
 ---
 
-<p class="editor-link" style="text-align: center;"><a href="cloudcannon:collections/_staff_members/" class="btn"><strong>&#9998;</strong> Manage Staff members</a></p>
 <ul class="staff">
-	{% for person in site.staff_members %}
+	{% for person in page.staff_members %}
 		<li>
-			<div class="staff-image" style="background-image: url({% include relative-src.html src=person.image_path %})"></div>
+			<div class="staff-image" style="background-image: url({{ person.image }})"></div>
 			<div class="name">{{ person.name }}</div>
 		</li>
 	{% endfor %}
@@ -16,7 +16,7 @@ hero: Our story
 <div class="thirds story-points">
 	<div>
 		<h3 class="editable">Passion</h3>
-		<p class="editable">What more could you want from life than drawing animals and bringing happiness to others? We hope this passion show through in our work.</p>
+		<p class="editable">We are here to supply to the people of nelson. And </p>
 	</div>
 	<div>
 		<h3 class="editable">Animal</h3>

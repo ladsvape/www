@@ -10,8 +10,5 @@ sizes:
   - Medium
   - Large
   - XL
-styles:
-  - name:
-    color:
-    image:
+image:
 ---

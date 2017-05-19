@@ -28,6 +28,7 @@
 		text-shadow: 0 1px 3px #000;
 		font-size: 3.2rem;
 		line-height: 1.5;
+		margin: 0;
 	}
 
 	@media (min-width: 500px) {
@@ -47,18 +48,8 @@
 	position: relative;
 }
 
-.screenshot{
-	height: auto;
-	display: block;
-	margin: 0 auto;
-	border-radius: 2px;
-	padding: 20px 0 0;
-	background: #DDD url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="44" height="12" viewBox="0 0 44 12"><circle cx="6" cy="6" r="4" fill="#eee" /><circle cx="22" cy="6" r="4" fill="#eee" /><circle cx="38" cy="6" r="4" fill="#eee" /></svg>') 4px 4px no-repeat;
-	box-shadow: 0px 0px 50px rgba(0,0,0,.2);
-}
-
 section {
-	padding: 100px 0;
+	padding: 0 0;
 }
 
 section + section {

@@ -5,6 +5,7 @@ html {
 html, body {
 	margin: 0;
 	padding: 0;
+	color: #666;
 }
 
 body {
@@ -50,10 +51,9 @@ h4 {
 	font-size: 1.5rem;
 }
 
-p, address, label, ul {
-	font-size: 1.38rem;
-	color: #666;
+p, address, label, ul, ol {
+	// font-size: 1.38rem;
 	margin-bottom: 20px;
-	font-weight: 300;
-	line-height: 1.4em;
+	// font-weight: 300;
+	// line-height: 1.4em;
 }

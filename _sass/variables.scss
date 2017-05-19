@@ -1,9 +1,13 @@
-$brand-color: hsla(8, 88%, 66%, 1);
+// $brand-color: hsla(8, 88%, 66%, 1);
+$brand-color: #dce775;
 $default-hero-image: "/images/hero/box-top.jpg";
+$text-on-brand-color: black;
+$text-on-brand-color-active: #827717;
+$text-on-brand-color-hover: #c0ca33;
 
 // Breakpoints
 $tablet: "(min-width: 450px)";
 $above-tablet: "(min-width: 550px)";
-$mid-point: "(min-width: 850px)";
+$mid-point: "(min-width: 650px)";
 $below-mid-point: "(max-width: 849px)";
 $desktop: "(min-width: 768px)";

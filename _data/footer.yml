@@ -10,19 +10,13 @@
   links:
     - name: Shipping
       link: /shipping/
-    - name: Returns
-      link: /returns/
+    - name: Track my order
+      link: /track-my-order/
+    - name: Terms and Conditions
+      link: /terms-and-conditions/
 - title: Social
   links:
-    - name: Fur
-      link: 'https://www.facebook.com/'
+    - name: Lad's Vape
+      link: 'https://www.facebook.com/Ladsvape/'
       new_window: true
       social_icon: Facebook
-    - name: Fur
-      link: 'https://www.instagram.com/'
-      new_window: true
-      social_icon: Instagram
-    - name: "@Fur"
-      link: 'https://www.twitter.com'
-      new_window: true
-      social_icon: Twitter

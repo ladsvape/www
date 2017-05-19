@@ -15,14 +15,14 @@
 
 $box-shadow-color: rgba(0,0,0,0.4);
 header {
-	color: #fff;
+	color: $text-on-brand-color;
 	padding: 20px 0;
 	background: $brand-color;
 	box-shadow: 0 3px 10px $box-shadow-color;
 	position: relative;
 
 	a {
-		color: #fff;
+		color: $text-on-brand-color;
 		text-decoration: none;
 		z-index: 1;
 		position: relative;
@@ -33,24 +33,15 @@ header {
 	}
 
 	.company-name {
-		display: inline-block;
-		position: relative;
+		position: absolute;
 		top: 4px;
 		a {
 			display: block;
 		}
 
-		svg {
-			display: inline-block;
-			height: 25px;
-			width: 25px;
-		}
-
-		span {
-			font-size: 1.5em;
-			position: relative;
-			top: -2px;
-			left: 5px;
+		img {
+			max-width: 100px;
+			min-height: 60px;
 		}
 	}
 }
@@ -58,21 +49,22 @@ header {
 nav {
 	text-transform: uppercase;
 	width: 100%;
-	padding: 20px 0 0 0;
+	padding: 80px 0 0 0;
 
 	@media #{$mid-point} {
 		display: inline-block;
 		vertical-align: top;
 		width: auto;
-		padding: 0 0 0 40px;
+		padding: 0 0 0 100px;
 	}
 
 	a {
 		margin: 0 3px;
 		padding: 20px 10px;
 		border-bottom: 1px solid rgba(255,255,255,0);
-		color: rgba(255,255,255,.6);
-		transition: 200ms ease-in color;
+		color: $text-on-brand-color;
+		border-bottom: 3px solid transparent;
+		transition: 200ms ease-in border-bottom;
 		display: none;
 
 		@media #{$mid-point} {
@@ -102,9 +94,14 @@ nav {
 	}
 
 	a:hover {
-		color: #fff;
+		opacity: 1.0;
+		border-bottom: 3px solid $text-on-brand-color-hover;
 	}
 
+	a.active {
+		border-bottom: 3px solid $text-on-brand-color-active;
+		color: $text-on-brand-color-active;
+	}
 
 	a.cart {
 		line-height: 1;
@@ -142,9 +139,4 @@ nav {
 			}
 		}
 	}
-
-	a.active {
-		color: #fff;
-	}
-
 }

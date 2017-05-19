@@ -9,7 +9,7 @@ __All trade will be complied with the laws of New Zealand trade agreement and co
 ### Age of purchase
 Product sold by Lad's Vape may only be sold to people age 18 and over. If the team of lad's vape discovers that the buyer is under the age of 18; therefore not legal entitled to order or purchase certain products. Lad's Vape shall be entailed to cancel the order immediately, without warning or notice. And, possibly will not offer the refund due to the breach of conditions.
 
-### Limitation of Liability: 
+### Limitation of Liability 
 Lad's vape will not be held accountable for any uncommon and or significant damages that result from the use of our product(s), the materials on this site or the performance of the products, The lack of competence to us, even if Lad's vape has been informed of any possibility of damages and indemnity. You hereby agree that your viewing of, access to, visiting, browsing, or use of the Site is at your own risk.
 
  Applicable law will possibly not allow The limitation of exclusion of liability or incidental or consequential damages, so the above limitation or exclusion may also not apply to you.

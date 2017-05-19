@@ -10,8 +10,16 @@
   links:
     - name: Shipping
       link: /shipping/
+    - name: FAQ
+      link: /FAQ/
     - name: Track my order
       link: /track-my-order/
+    - name: Health and safety
+      link: /heath-and-safety/
+- title: Legal disclamer and definition
+  links:
+    - name: Privacy
+      link: /Privacy/
     - name: Terms and Conditions
       link: /terms-and-conditions/
 - title: Social

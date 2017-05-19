@@ -10,16 +10,22 @@ input[type=submit] {
 	-webkit-appearance: none;
 }
 
+.button a,
+.button button,
+input[type=submit]:disabled {
+	background: grey;
+}
+
 .button a:hover,
 .button button:hover,
-input[type=submit]:hover {
+input[type=submit]:hover:enabled {
 	background: darken($brand-color, 10%);
 	cursor: pointer;
 }
 
 .button a:active,
 .button button:active,
-input[type=submit]:active {
+input[type=submit]:active:enabled {
 	border-width: 1px;
 	border-top: 3px solid transparent
 }

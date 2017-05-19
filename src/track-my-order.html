@@ -3,8 +3,11 @@ title: Track my order
 hero: Track my order
 ---
 
+<div class="content">
 <form onsubmit="this.action = 'http://trackandtrace.courierpost.co.nz/search/'+this.tracking.value" target="_blank" method="post">
-    <label>My tracking number</label>
-    <input name="" id="tracking" onchange="this.submit.disabled = (this.tracking.value.length !== 10)"></input>
+    <label for="tracking">My tracking number</label>
+    <input name="tracking"
+        onchange="this.submit.disabled = (this.tracking.value.length !== 10)"></input>
     <input disabled="disabled" name="submit" type="submit" value="Search"></input>
 </form>
+</div>

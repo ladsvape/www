@@ -8,9 +8,8 @@ hero:
 ### Delivery Details
 Lad's vape provides the below shipping services. Actual delivery time frames may vary due to _weather, service delays, holidays etc._
 
-__Shipping is _Free_ to the anywhere in _Nelson, Tasman Distric_. This Includes Motuaka also.__
-
-            Unfortunally Free shipping will Not apply to Rural areas.
+__Standard Shipping is _Free_ to the anywhere in _Nelson, Tasman Distric_ when you any purchase Juices. This Includes you guys out there in Motuaka.__
+           Rural areas Excluded
 
 __Standard__
 

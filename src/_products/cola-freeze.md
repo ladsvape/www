@@ -4,7 +4,6 @@ description_markdown: >-
   The thirst quencing taste of a frozen carbonated soft drink. 
 
 disabled: false
-garment_type:
 price: '9'
 sku: colafreeze
 stock: 10

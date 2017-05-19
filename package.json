@@ -1,0 +1,14 @@
+{
+  "name": "Lad's Vape",
+  "version": "1.0",
+  "description": "Website",
+  "authors": [
+    {
+      "name": "David Graeff",
+      "email": "david.graeff@web.de"
+    }
+  ],
+  "license": "",
+  "devDependencies": {
+  }
+}

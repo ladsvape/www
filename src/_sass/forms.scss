@@ -54,6 +54,27 @@ label, input, textarea, select {
 	box-sizing: border-box;
 }
 
+.newsletter-form {
+	display: flex;
+
+	input {
+		flex: 1 0 auto;
+		width: inherit;
+	}
+
+	label {
+		white-space: nowrap;
+    	margin: 0;
+		flex: 0;
+    	align-self: center;
+		padding-right: 10px;
+	}
+}
+
+.newsletter-errors {
+	width: 100%;
+}
+
 .radio-input {
 	line-height: 1;
 	margin: 20px 0;

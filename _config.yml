@@ -34,6 +34,17 @@ jekyll-archives:
   enabled:
     - categories
 
+# http://jch.penibelst.de/
+compress_html:
+  clippings: all
+  comments: []
+  endings: []
+  ignore:
+    envs: [local]
+  blanklines: false
+  profile: false
+  startings: []
+
 gems:
   - jekyll-sitemap
   - jekyll-seo-tag

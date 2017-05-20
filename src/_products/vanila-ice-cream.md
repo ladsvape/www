@@ -14,5 +14,5 @@ sizes:
   - Medium
   - Large
   - XL
-image: /images/products/deer/black.jpg
+image: /images/products/placeholder.png
 ---

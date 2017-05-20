@@ -13,5 +13,5 @@ sizes:
   - Medium
   - Large
   - XL
-image: /images/products/giraffe/green.jpg
+image: /images/products/placeholder.png
 ---

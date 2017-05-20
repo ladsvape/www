@@ -12,5 +12,5 @@ stock: 10
 sizes:
   - 30mL
   - 100mL
-image: /images/products/elephant/OrangeBanana.jpg
+image: /images/products/placeholder.png
 ---

@@ -14,5 +14,5 @@ sizes:
   - Medium
   - Large
   - XL
-image: /images/products/lion/blue.jpg
+image: /images/products/placeholder.png
 ---

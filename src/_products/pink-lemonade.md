@@ -14,5 +14,5 @@ sizes:
   - Medium
   - Large
   - XL
-image: /images/products/tiger/green.jpg
+image: /images/products/placeholder.png
 ---

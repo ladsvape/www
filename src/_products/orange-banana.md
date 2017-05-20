@@ -1,4 +1,5 @@
 ---
+layout: product
 name: Orange banana Flavour
 description_markdown: >-
   As the name entitled it's the best weird combanation of orange and banana to give an awsome flavour

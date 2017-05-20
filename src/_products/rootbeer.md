@@ -1,4 +1,5 @@
 ---
+layout: product
 name: Rootbeer
 description_markdown: >-
   Honestly It's Just Rootbeer.

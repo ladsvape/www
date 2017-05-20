@@ -1,4 +1,5 @@
 ---
+layout: product
 name: Vinila Ice Cream
 description_markdown: >-
   The classic Vanila Ice Cream taste on Sundays as dessert. Creamy, Sweet and slightly cool for the pleasurable melting moment.

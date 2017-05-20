@@ -1,6 +1,6 @@
 {
-  "name": "Lad's Vape",
-  "version": "1.0",
+  "name": "LadsVape",
+  "version": "1.0.0",
   "description": "Website",
   "authors": [
     {
@@ -11,11 +11,11 @@
   "license": "",
   "private": true,
   "scripts": {
-    "dev": "node build/dev-server.js",
-    "build": "node build/build.js"
+    "dev": "./node_modules/.bin/webpack webpack.config.js && bundle exec jekyll serve",
+    "build": "./node_modules/.bin/webpack webpack.config.js"
   },
   "dependencies": {
-    "superagent": "^3.5.2",
+    "jquery": "^3.2.1",
     "webpack": "^2.5.1"
   },
   "devDependencies": {

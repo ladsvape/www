@@ -1,4 +1,5 @@
 ---
+layout: product
 name:
 price:
 sku:

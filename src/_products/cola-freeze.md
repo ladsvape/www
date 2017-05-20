@@ -1,4 +1,5 @@
 ---
+layout: product
 name: Cola Freeze
 description_markdown: >-
   The thirst quencing taste of a frozen carbonated soft drink. 

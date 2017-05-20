@@ -4,9 +4,7 @@
 title: Lads Vape Liquids
 url: "https://www.ladsvape.nz/"
 baseurl:
-google_analytics_key: "UA-99603278-1"
 google_maps_javascript_api_key: "AIzaSyAKfRbVaqwClJeRXqW_MDZ4Ra1iRFXb6xQ"
-snipcart_key: "NWNjOWZhYjctYmE1ZS00MDM3LThkNjUtZmE5M2NiMTU1NzAwNjM2MjYzNTE1MzM5ODg1ODkw"
 
 source: src
 destination: _site

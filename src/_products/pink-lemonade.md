@@ -1,4 +1,5 @@
 ---
+layout: product
 name: Pink Lemonade
 description_markdown: >-
    Sweet and tangy. Just like a refreshing glass of lemonade in the hots of summer.

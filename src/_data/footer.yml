@@ -11,15 +11,17 @@
     - name: Shipping
       link: /shipping/
     - name: FAQ
-      link: /FAQ/
+      link: /faq/
     - name: Track my order
       link: /track-my-order/
     - name: Health and safety
       link: /heath-and-safety/
 - title: Legal disclamer and definition
   links:
+     - name: Nicotine
+      link: /nicotine/
     - name: Privacy
-      link: /Privacy/
+      link: /privacy/
     - name: Terms and Conditions
       link: /terms-and-conditions/
 - title: Social

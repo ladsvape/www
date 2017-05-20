@@ -48,7 +48,8 @@ module.exports = {
                 exclude: [path.resolve(__dirname, 'webpack.config.js')],
                 include: [path.resolve(__dirname, 'src_js')],
                 options: {
-                    formatter: require('eslint-friendly-formatter')
+                    formatter: require('eslint-friendly-formatter'),
+                    failOnWarning: true
                 }
             }
         ]

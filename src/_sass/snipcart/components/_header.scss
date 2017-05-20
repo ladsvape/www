@@ -79,6 +79,7 @@ $_header-total-height: 38px;
 
 .snip-header__title {
     display: none;
+    text-shadow: 0 1px 3px palette(header, background--highlight);
     font-size: fontsize(header, large) / 2;
     text-align: center;
 
@@ -98,7 +99,7 @@ $_header-total-height: 38px;
 }
 
 .snip-header__total {
-    background: palette(header, background--highlight);
+    background: $text-on-brand-color-hover;
     border-radius: 5px;
     display: inline-block;
     padding: .5em;

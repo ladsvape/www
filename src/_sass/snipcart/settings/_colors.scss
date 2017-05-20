@@ -33,12 +33,12 @@ $palettes: (
         color--invert: #fff
     ),
     footer: (
-        background: #222,
+        background: $brand-color,
         color: #555,
         color--highlight: #999
     ),
     form: (
-        background: #fff,
+        background: $brand-color,
         border: #eee,
         border--focus: #333,
         color: #555,
@@ -46,7 +46,7 @@ $palettes: (
         label-color: #999
     ),
     header: (
-        background: #222,
+        background: $brand-color,
         background--highlight: #111,
         color: #fff,
         label-color: #999

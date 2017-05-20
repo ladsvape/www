@@ -18,11 +18,12 @@ document.getElementById('open-nav').onclick = function () {
     m = s.getElementsByTagName(o)[0]
     a.async = 1
     a.src = g
+    a.onload = function () {
+        window[r]('create', googleAnalyticsKey, 'auto')
+        window[r]('send', 'pageview')
+    }
     m.parentNode.insertBefore(a, m)
-})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga')
-
-window.ga('create', googleAnalyticsKey, 'auto')
-window.ga('send', 'pageview');
+})(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
 (function () {
     var a = document.createElement('script')
@@ -31,6 +32,9 @@ window.ga('send', 'pageview');
     a.id = 'snipcart'
     a.dataset.apiKey = snipcartKey
     a.src = 'https://cdn.snipcart.com/scripts/2.0/snipcart.js'
+    a.onload = function () {
+        window.Snipcart.execute('config', 'show_continue_shopping', true)
+    }
     m.parentNode.insertBefore(a, m)
 })()
 

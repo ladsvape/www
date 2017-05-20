@@ -42,27 +42,32 @@ $_base-z-index: 1040;
 \*------------------------------------*/
 
 // Body override
-body.snip-open {
-    height: auto !important;
-    margin: 0 !important;
-    overflow: hidden !important;
-    padding: 0 !important;
+// body.snip-open {}
+
+.snip-layout::before {
+    content: '';
+    background-color: $brand-color;
+    display: inline-block;
+    width: 100%;
+	height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: calc($_base-z-index - 1);
 }
 
 // Base layout
 .snip-layout {
-    background: rgba(123, 123, 123, .75);
-    bottom: 0;
     color: palette(layout, color);
     font-family: $font-base;
     font-size: fontsize(reset, base);
-    left: 0;
-    line-height: normal;
-    overflow-x: auto;
-    padding: 0;
     position: fixed;
+    left: 0;
     right: 0;
     top: 0;
+    line-height: normal;
+    padding: 0;
     z-index: $_base-z-index;
 
     // Compound settings and reset

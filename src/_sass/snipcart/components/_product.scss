@@ -36,12 +36,12 @@ $_product-disabled-opacity: 0.2;
 }
 
 .snip-product--selectable-item {
-    background: url("images/snipcartcheckbox.png") no-repeat 0 center;
+    background: url("../images/snipcartcheckbox.png") no-repeat 0 center;
     padding-left: 2.286em;
 
     // [1]
     &.js-selected {
-        background-image: url("images/snipcartselected.png");
+        background-image: url("../images/snipcartselected.png");
     }
 }
 

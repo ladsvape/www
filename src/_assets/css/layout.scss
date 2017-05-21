@@ -8,6 +8,10 @@
 	max-width: 750px;
 }
 
+main {
+	background-color: $content-background;
+}
+
 .container {
 	max-width: 1140px;
 
@@ -20,8 +24,8 @@
 .hero {
 	color: #ffffff;
 	text-align: center;
-	background: $brand-color no-repeat center;
-	background-size: cover;
+	// background: $brand-color no-repeat center;
+	// background-size: cover;
 	position: relative;
 
 	h2 {

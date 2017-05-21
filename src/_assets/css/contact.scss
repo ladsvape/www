@@ -49,18 +49,3 @@
 		}
 	}
 }
-
-.operator-avatar {
-    position: fixed;
-    border-radius: 50%;
-    width: 4.5em;
-    height: 4.5em;
-    box-shadow: 0 1px 3px rgba(0,0,0,.2);
-    border: .3em solid #fff;
-    box-sizing: content-box;
-    overflow: hidden;
-    color: #fff;
-    text-align: center;
-    position: relative;
-    transition: background-color .2s ease-in-out .2s;
-}

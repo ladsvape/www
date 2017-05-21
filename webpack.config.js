@@ -1,5 +1,6 @@
 const path = require('path')
 var webpack = require('webpack')
+const BabiliPlugin = require("babili-webpack-plugin");
 
 module.exports = {
     // webpack folder's entry js - excluded from jekll's build process.
@@ -10,16 +11,15 @@ module.exports = {
         filename: 'bundle.js'
     },
     plugins: [
-      new webpack.optimize.UglifyJsPlugin({
-          compress: {
-              warnings: true
-          }
+      new BabiliPlugin({}, {
+            test: /src_js\/\.(js)$/,
+            comments: false
       })
     ],
     module: {
         loaders: [
             {
-                test: /\.(js)$/,
+                test: /src_js\/\.(js)$/,
                 exclude: /(node_modules)/,
                 loader: 'babel-loader',
                 include: [path.resolve(__dirname, 'src_js')],

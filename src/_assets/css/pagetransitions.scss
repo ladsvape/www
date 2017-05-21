@@ -1,0 +1,17 @@
+.pageTransitionInitial {
+    opacity: 0;
+    transition: 400ms ease-in opacity;
+}
+
+.pageTransitionOut { animation: pageTransitionOut .3s ease forwards !important; }
+.pageTransitionIn { animation: pageTransitionIn .3s ease forwards; }
+
+@keyframes pageTransitionOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes pageTransitionIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

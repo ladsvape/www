@@ -4,7 +4,7 @@
 title: Lads Vape Liquids
 url: "https://www.ladsvape.nz/"
 baseurl:
-google_maps_javascript_api_key: "AIzaSyAKfRbVaqwClJeRXqW_MDZ4Ra1iRFXb6xQ"
+cacheversion: v1
 
 source: src
 destination: _site
@@ -45,9 +45,30 @@ compress_html:
   profile: false
   startings: []
 
+assets:
+  compress:
+    css: true
+    js: false
+  cache: .asset-cache
+  prefix: "/assets"
+  assets:
+    - "*.png"
+    - "screen.css"
+    - "sw.js"
+  digest: false
+  sources:
+    - _assets/css
+    - _assets/images
+    - _assets/javascripts
+    - _assets/stylesheets
+    - _assets/fonts
+    - _assets/img
+    - _assets/js
+
 gems:
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-assets
 
 exclude:
   - Gemfile
@@ -55,3 +76,6 @@ exclude:
   - README.md
   - LICENCE
   - node_modules
+  - package.json
+  - build.js
+  - webpack.config.js

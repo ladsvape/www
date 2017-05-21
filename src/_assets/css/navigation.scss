@@ -13,12 +13,11 @@
 	}
 }
 
-$box-shadow-color: rgba(0,0,0,0.4);
 header {
 	color: $text-on-brand-color;
 	padding: 20px 0;
 	background: $brand-color;
-	box-shadow: 0 3px 10px $box-shadow-color;
+	// box-shadow: 0 3px 10px $box-shadow-color;
 	position: relative;
 
 	a {
@@ -63,8 +62,9 @@ nav {
 		padding: 20px 10px;
 		border-bottom: 1px solid rgba(255,255,255,0);
 		color: $text-on-brand-color;
+		padding-bottom: 20px;
 		border-bottom: 3px solid transparent;
-		transition: 200ms ease-in border-bottom;
+		transition: 200ms all;
 		display: none;
 
 		@media #{$mid-point} {
@@ -96,11 +96,13 @@ nav {
 	a:hover {
 		opacity: 1.0;
 		border-bottom: 3px solid $text-on-brand-color-hover;
+		padding-bottom: 5px;
 	}
 
 	a.active {
 		border-bottom: 3px solid $text-on-brand-color-active;
 		color: $text-on-brand-color-active;
+		padding-bottom: 5px;
 	}
 
 	a.cart {

@@ -2,7 +2,6 @@
 	.nav-open {
 
 		nav {
-			background: $brand-color;
 			border: 0;
 			z-index: 2;
 
@@ -16,7 +15,7 @@
 header {
 	color: $text-on-brand-color;
 	padding: 20px 0;
-	background: $brand-color;
+	background-color: $header-bg;
 	// box-shadow: 0 3px 10px $box-shadow-color;
 	position: relative;
 
@@ -128,7 +127,7 @@ nav {
 		a.cart {
 			border-radius: 3px;
 			color: #222;
-			background: rgba(255,255,255,.9);
+			background: rgba(255,255,255,1);
 			position: absolute;
 			right: 20px;
 			top: -2px;

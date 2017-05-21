@@ -6,6 +6,9 @@
 .pageTransitionOut { animation: pageTransitionOut .3s ease forwards !important; }
 .pageTransitionIn { animation: pageTransitionIn .3s ease forwards; }
 
+.cardTransitionOut { animation: pageTransitionOut .6s ease forwards !important; }
+.cardTransitionIn { animation: pageTransitionIn .6s ease forwards; }
+
 @keyframes pageTransitionOut {
     from { opacity: 1; }
     to { opacity: 0; }

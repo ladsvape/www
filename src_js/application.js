@@ -2,6 +2,7 @@ import jQuery from '../node_modules/jquery/dist/jquery.min'
 import Barba from '../node_modules/barba.js/dist/barba.min'
 import {initMap} from './maps'
 import {googleAnalyticsKey, snipcartKey} from './authkeys'
+import {smokemachine} from './smoke'
 
 window.jQuery = jQuery.noConflict()
 window.$ = window.jQuery
@@ -48,6 +49,8 @@ document.addEventListener('DOMContentLoaded', e => {
     initGA()
     Barba.Pjax.start()
     // Barba.Prefetch.init()
+    var canvasElement = document.getElementById('backgroundcanvas')
+    if (canvasElement) initSmoke(canvasElement)
 
     document.body.addEventListener('pageloaded', event => {
         if (window.ga) window.ga('send', 'pageview')
@@ -64,7 +67,6 @@ document.addEventListener('DOMContentLoaded', e => {
 function pageEnter (newContentEl) {
     // Update links
     var currentLinkData = newContentEl.dataset
-    console.log('newpage', currentLinkData)
     var allLinks = document.querySelectorAll('[data-linkname]')
     for (var link of allLinks) {
         link.classList.remove('active')
@@ -97,6 +99,29 @@ function pageLeave () {
     heroEl.classList.add('pageTransitionOut')
 }
 
+function initSmoke (canvas) {
+    console.log('start smoke')
+    canvas.height = window.innerHeight
+    canvas.width = window.innerWidth
+    var party = smokemachine(canvas, canvas.getContext('2d'), [1, 5, 253])
+    party.start()
+
+    document.addEventListener('resize', function (e) {
+        canvas.height = window.innerHeight
+        canvas.width = window.innerWidth
+    })
+
+    document.addEventListener('mousemove', function (e) {
+        var x = e.clientX
+        var y = e.clientY
+        var n = 0.5
+        var t = Math.floor(Math.random() * 200) + 3800
+        party.addsmoke(x, y, n, t)
+    })
+
+    setInterval(() => party.addsmoke(window.innerWidth / 2, window.innerHeight, 1), 100)
+}
+
 function initGA () {
     var r = 'ga'
     window['GoogleAnalyticsObject'] = 'ga'
@@ -110,7 +135,25 @@ function initGA () {
         window[r]('send', 'pageview')
     }
     document.body.appendChild(a)
-};
+}
+
+function snipcartReady (Snipcart) {
+    Snipcart.api.configure('show_continue_shopping', true)
+    Snipcart.subscribe('cart.opened', function () {
+        var snipcartEl = document.querySelector('.snip-layout')
+        snipcartEl.classList.remove('cardTransitionOut')
+        snipcartEl.classList.add('cardTransitionIn')
+    })
+    var closeEl = document.getElementById('snipcart-cartitems-continue-top')
+    closeEl.onclick = function (event) {
+        // var snipcartEl = document.querySelector('.snip-layout')
+        // snipcartEl.style.display = 'block'
+        // snipcartEl.classList.remove('cardTransitionIn')
+        // snipcartEl.classList.add('cardTransitionOut')
+        // setTimeout(() => { snipcartEl.style.display = 'none' }, 600)
+        // event.stopPropagation()
+    }
+}
 
 function initSnipCart () {
     var a = document.createElement('script')
@@ -119,7 +162,7 @@ function initSnipCart () {
     a.dataset.apiKey = snipcartKey
     a.src = 'https://cdn.snipcart.com/scripts/2.0/snipcart.js'
     a.onload = function () {
-        window.Snipcart.execute('config', 'show_continue_shopping', true)
+        window.Snipcart.subscribe('cart.ready', () => snipcartReady(window.Snipcart))
     }
     document.body.appendChild(a)
 }
@@ -136,9 +179,7 @@ function initDisquis (domEl) {
 }
 
 if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/js/sw.js').then(registration => {
-        console.log('ServiceWorker registration successful with scope: ', registration.scope)
-    }).catch(err => {
-        console.log('ServiceWorker registration failed: ', err)
+    navigator.serviceWorker.register('/js/sw.js').catch(err => {
+        console.error('ServiceWorker registration failed: ', err)
     })
 }

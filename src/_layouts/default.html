@@ -13,7 +13,7 @@ layout: compress
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' https://* 'unsafe-inline'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://*.disqus.com https://*.disquscdn.com https://*.snipcart.com https://*.google-analytics.com https://maps.googleapis.com https://csi.gstatic.com data:; child-src *" />
+	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' https://* 'unsafe-inline' data:; script-src 'self' 'unsafe-eval' 'unsafe-inline' data: https://disqus.com https://*.disqus.com https://*.disquscdn.com https://*.snipcart.com https://*.google-analytics.com https://maps.googleapis.com https://csi.gstatic.com; child-src *" />
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 	{% css main %}
@@ -28,11 +28,15 @@ layout: compress
 <body>
 	<header class="hero-image" {% if page.hero.image %}style="background-image:url({{ page.hero.image | relative_url }})"{% endif %}>
 		<div class="container">
-			<div class="company-name">
+			<!--<div class="company-name">
 				<a href="{{ site.baseurl | relative_url }}/">
 				<img src="{{"images/logo.png" | relative_url}}" />
 				</a>
-			</div>
+			</div>-->
+			<section class="hero text-container" >
+				<h2 class="hero-title">{{ hero }}</h2>
+			</section>
+			<div id="mainnav">
 			<nav>
 				<a class="nav-toggle" id="open-nav" href="#">&#9776;</a>
 				{% for link in site.data.navigation %}
@@ -47,88 +51,62 @@ layout: compress
 					<a href="{{ link.link }}" class="{{ class }}" data-linkname="{{ link.name }}"
 						{% if link.new_window %}target="_blank"{% endif %}>{{ link.name }}</a>
 				{% endfor %}
+				<span style="flex: 1 0 auto"> </span>
 				<a href="#" class="cart snipcart-checkout">
 					<i class="material-icons">shopping_cart</i><span>View Cart</span>
 				</a>
 			</nav>
+			</div>
 		</div>
-		<section class="hero text-container" >
-			<h2 class="hero-title">{{ hero }}</h2>
-		</section>
 	</header>
 
 	<canvas id="backgroundcanvas"></canvas>
+
 	<main id="barba-wrapper">
 		<div class="barba-container" data-namespace="homepage"
 			data-pagetitle="{{ page.title }}" data-hero="{{ hero }}"
 			{% if page.hero.image %}data-heroimage="{{ page.hero.image | relative_url }}"{% endif %}
+
 		{{ content }}
+		
 		</div>
 	</main>
 
-	<footer>
-		<div class="container">
+	{% include newsletter.html %}
 
-			<div id="newsletter">
-			<form action="//ladsvape.us15.list-manage.com/subscribe/post?u=794f3957dbeed7507ac898d63&amp;id=16d33fdcf0"
-				method="post"
-				id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
-				class="validate" target="_blank" novalidate>
-				<a href="#close" title="Close" class="close">X</a>
-				<h1>Stay up to date</h1>
-				<div class="info">Get informed about new exciting products and limited quantity discounts.</div>
-				<div class="newsletter-form">
-					<label for="mce-EMAIL">Email Address </label>
-					<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-				</div>
-				<div id="mce-responses" class="newsletter-errors">
-					<div class="response" id="mce-error-response" style="display:none"></div>
-					<div class="response" id="mce-success-response" style="display:none"></div>
-				</div>
-				<div style="position: absolute; left: -5000px;" aria-hidden="true">
-					<input type="text" name="b_794f3957dbeed7507ac898d63_16d33fdcf0" tabindex="-1" value="">
-				</div>
-				<div>
-					<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-				</div>
-			</form>
-			</div>
+	<footer><div class="container">
+		<div class="footer-columns">
+		{% for column in site.data.footer %}
+		<ul class="footer-links">
+			<li><h4>{{ column.title }}</h4></li>
+			{% for link in column.links %}
+				{% assign class = "" %}
+				{% if link.highlight %}
+					{% assign class = class | append: " highlight" %}
+				{% endif %}
 
-			<a class="newsletter-btn" href="#newsletter"><i class="material-icons">mail</i></a>
-
-			<div class="footer-columns">
-				{% for column in site.data.footer %}
-				<ul class="footer-links">
-					<li><h4>{{ column.title }}</h4></li>
-					{% for link in column.links %}
-						{% assign class = "" %}
-						{% if link.highlight %}
-							{% assign class = class | append: " highlight" %}
-						{% endif %}
-
-						{% if link.name == page.title %}
-							{% assign class = class | append: " active" %}
-						{% endif %}
-						{% if link.social_icon %}
-							{% assign class = class | append: link.social_icon + "-icon" %}
-						{% endif %}
-						<li>
-							<a class="{{ class }}"
-								{% if link.new_window %}target="_blank" href="{{ link.link }}"
-								{% else %}href="{{ link.link | relative_url }}"{% endif %}
-								data-linkname="{{ link.name }}"
-							>
-							{{ link.name }}
-							{% if link.social_icon %}
-								{% include social-icon.html icon=link.social_icon %}
-							{% endif %}
-						</a></li>
-					{% endfor %}
-				</ul>
-				{% endfor %}
-			</div>
-			<p class="copyright">© {{ site.time | date: '%Y' }} {{ site.title }}</p>
+				{% if link.name == page.title %}
+					{% assign class = class | append: " active" %}
+				{% endif %}
+				{% if link.social_icon %}
+					{% assign class = class | append: link.social_icon + "-icon" %}
+				{% endif %}
+				<li>
+					<a class="{{ class }}"
+						{% if link.new_window %}target="_blank" href="{{ link.link }}"
+						{% else %}href="{{ link.link | relative_url }}"{% endif %}
+						data-linkname="{{ link.name }}"
+					>
+					{{ link.name }}
+					{% if link.social_icon %}
+						{% include social-icon.html icon=link.social_icon %}
+					{% endif %}
+				</a></li>
+			{% endfor %}
+		</ul>
+		{% endfor %}
 		</div>
-	</footer>
+		<p class="copyright">© {{ site.time | date: '%Y' }} {{ site.title }}</p>
+	</div></footer>
 </body>
 </html>

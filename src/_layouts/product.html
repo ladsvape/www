@@ -1,19 +1,15 @@
 ---
 layout: default
 ---
-<div class="content">
-	<section class="page">
-		<div class="container">
-			<div class="product-container">
-				{% include product-styles.html product=page %}
-				<div class="product-details" id="add">
-					<h3>{{ page.name }} - ${{ page.price }}</h3>
-					{{ page.description_markdown | markdownify }}
+<div class="container">
+	<div class="product-container">
+		{% include product-styles.html product=page type='dest' %}
+		<div class="product-details" id="add">
+			<h3>{{ page.name }} - ${{ page.price }}</h3>
+			{{ page.description_markdown | markdownify }}
 
-					<div class="button">{% include snipcart-button.html product=page %}</div>
-				</div>
-			</div>
-			<div id="disqus_thread"></div>
+			<div class="button">{% include snipcart-button.html product=page %}</div>
 		</div>
-	</section>
+	</div>
+	<div id="disqus_thread"></div>
 </div>

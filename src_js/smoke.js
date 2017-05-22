@@ -71,7 +71,6 @@ var smokemachine = function (canvas, context, color) {
 
     function updateanddrawparticles (deltatime) {
         context.clearRect(0, 0, canvas.width, canvas.height)
-        console.log('update', canvas.width, canvas.height)
         deltatime = deltatime || 16
         var newparticles = []
         currentparticles = currentparticles.concat(pendingparticles)
@@ -120,4 +119,29 @@ var smokemachine = function (canvas, context, color) {
     }
 }
 
-export {smokemachine}
+function initSmoke (canvas) {
+    canvas.height = window.innerHeight
+    canvas.width = window.innerWidth
+    var blue = [1, 5, 253]
+    // var green = [220, 231, 117]
+    var party = smokemachine(canvas, canvas.getContext('2d'), blue)
+    party.start()
+
+    document.addEventListener('resize', function (e) {
+        canvas.height = window.innerHeight
+        canvas.width = window.innerWidth
+    })
+
+    document.addEventListener('mousemove', function (e) {
+        var x = e.clientX
+        var y = e.clientY
+        var n = 0.5
+        var t = Math.floor(Math.random() * 200) + 3800
+        party.addsmoke(x, y, n, t)
+    })
+
+    // Uncomment for a steady smoke at the bottom middle of the screen
+    // setInterval(() => party.addsmoke(window.innerWidth / 2, window.innerHeight, 1), 100)
+}
+
+export {initSmoke}

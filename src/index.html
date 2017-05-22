@@ -5,22 +5,14 @@ hero: Lad's Vape Liquids
 layout: default
 ---
 
-<div class="content" id="products">
-<section>
-	<div class="container">
-		<ul class="product-list">
-			{% for product in site.products %}
-			{% if product.disabled == false %}
-				<li>
-					{% include product-styles.html product=product %}
-					<div class="product-details">
-						<h4><a href="{{ product.url }}">{{ product.name }}</a></h4>
-						<p>${{ product.price }}</p>
-					</div>
-				</li>
-			{% endif %}
-			{% endfor %}
-		</ul>
-	</div>
-</section>
+<div class="content container" id="products">
+	<ul class="product-list">
+		{% for product in site.products %}
+		{% if product.disabled == false %}
+		<li>
+			{% include product-styles.html product=product type='source' includeDetails='true' %}
+		</li>
+		{% endif %}
+		{% endfor %}
+	</ul>
 </div>

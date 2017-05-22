@@ -1,14 +1,22 @@
 ---
-layout: page
+layout: textpage
 title: Track my order
 hero: Track my order
 ---
 
-<div class="content">
-<form onsubmit="this.action = 'http://trackandtrace.courierpost.co.nz/search/'+this.tracking.value" target="_blank" method="post">
-    <label for="tracking">My tracking number</label>
-    <input name="tracking"
-        onchange="this.submit.disabled = (this.tracking.value.length !== 10)"></input>
-    <input disabled="disabled" name="submit" type="submit" value="Search"></input>
-</form>
+<div>
+    You can track your order with the tracking number that we have send
+    to your e-mail address together with your invoice. If your parcel
+    haven't arrived after 7 working days, please <a href="/contact/">contact us</a>.
 </div>
+<br>
+<form
+    class="tile"
+    onsubmit="this.action = 'http://trackandtrace.courierpost.co.nz/search/'+this.tracking.value"
+    target="_blank" method="post" id="trackorder">
+    <div class="form-with-input-label">
+        <label for="tracking">Tracking number</label>
+        <input type="number" name="tracking"></input>
+    </div>
+    <input name="submit" type="submit" value="Search"></input>
+</form>

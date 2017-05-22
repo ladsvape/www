@@ -1,5 +1,6 @@
 .button a,
 .button button,
+.btn,
 input[type=submit] {
 	color: #fff;
 	text-decoration: none;
@@ -12,12 +13,14 @@ input[type=submit] {
 
 .button a,
 .button button,
+.btn:disabled,
 input[type=submit]:disabled {
 	background: grey;
 }
 
 .button a:hover,
 .button button:hover,
+.btn:hover,
 input[type=submit]:hover:enabled {
 	background: darken($brand-color, 10%);
 	cursor: pointer;
@@ -25,6 +28,7 @@ input[type=submit]:hover:enabled {
 
 .button a:active,
 .button button:active,
+.btn,
 input[type=submit]:active:enabled {
 	border-width: 1px;
 	border-top: 3px solid transparent
@@ -99,17 +103,25 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, tex
 }
 
 .newsletter-btn {
+	z-index: 10;
     position: fixed;
+	padding: 5px;
 	right: 20px;
 	bottom: 20px;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
     border: 2px solid #fff;
     box-sizing: content-box;
     color: #fff;
     text-align: center;
-    transition: background-color .2s ease-in-out .2s;
+	transition: all ease-in-out .2s;
+	&:hover {
+		transform: rotate(360deg)
+	}
+	i.material-icons {
+		font-size: 48px !important;
+		width: 48px;
+		height: 48px;
+	}
 }
 
 #newsletter {
@@ -147,6 +159,24 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, tex
 	pointer-events: auto;
 }
 
+.form-with-input-label {
+	display: flex;
+
+	input {
+		flex: 1 1 auto;
+		width: inherit;
+		min-width: 0px;
+	}
+
+	label {
+		white-space: nowrap;
+		margin: 0;
+		flex: 0;
+		align-self: center;
+		padding-right: 10px;
+	}
+}
+
 #mc-embedded-subscribe-form {
 	background-color: $text-on-brand-color-hover;
 	box-shadow: 1px 1px 10px 3px #888888;
@@ -170,24 +200,6 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, tex
 	.info {
 		padding-top: 10px;
 		padding-bottom: 10px;
-	}
-
-	.newsletter-form {
-		display: flex;
-
-		input {
-			flex: 1 1 auto;
-			width: inherit;
-			min-width: 0px;
-		}
-
-		label {
-			white-space: nowrap;
-			margin: 0;
-			flex: 0;
-			align-self: center;
-			padding-right: 10px;
-		}
 	}
 
 	.newsletter-errors {

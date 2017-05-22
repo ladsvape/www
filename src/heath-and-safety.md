@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: textpage
 title: Health and Safety
 hero: Health and Safety
 ---

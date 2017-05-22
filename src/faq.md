@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: textpage
 title: Frequently Asked Questions
 hero: Frequently Asked Questions
 ---

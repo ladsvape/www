@@ -21,6 +21,7 @@ function initFixedNavigation () {
                 isFixed = true
                 clone = elem.cloneNode(true)
                 clone.classList.add('navbar-fixed')
+                clone.classList.add('container')
                 document.body.appendChild(clone)
             }
         } else if (isFixed) {

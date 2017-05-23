@@ -8,6 +8,7 @@ disabled: false
 price: '9'
 sku: colafreeze
 stock: 10
+maxquantity: 5
 sizes:
   - 30mL
   - 100mL[+1.00]

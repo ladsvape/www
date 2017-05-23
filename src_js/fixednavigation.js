@@ -17,7 +17,6 @@ function initFixedNavigation () {
     document.addEventListener('scroll', e => {
         if (window.scrollY > navY) {
             if (!isFixed) {
-                console.log('added fixed')
                 isFixed = true
                 clone = elem.cloneNode(true)
                 clone.classList.add('navbar-fixed')
@@ -25,7 +24,6 @@ function initFixedNavigation () {
                 document.body.appendChild(clone)
             }
         } else if (isFixed) {
-            console.log('removed fixed')
             isFixed = false
             clone.classList.remove('navbar-fixed')
             document.body.removeChild(clone)

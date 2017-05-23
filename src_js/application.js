@@ -17,10 +17,8 @@ document.addEventListener('DOMContentLoaded', e => {
     initProductImages()
     initFixedNavigation()
     initPageTransition(pageEnter, pageLeave)
-    try {
-        var canvasElement = document.getElementById('backgroundcanvas')
-        if (canvasElement) initSmoke(canvasElement)
-    } catch (e) { console.error('smoke failed', e) }
+    initSmoke()
+    init18plusMessage()
 
     document.body.addEventListener('pageloaded', event => {
         if (window.ga) window.ga('send', 'pageview')
@@ -124,6 +122,16 @@ function initSnipCart () {
     document.body.appendChild(a)
 }
 
+function init18plusMessage () {
+    var elem = document.querySelector('#plus18 .btn.confirm18plus')
+    if (!elem || !localStorage) return
+
+    if (localStorage.getItem('plus18') !== '1') {
+        elem.addEventListener('click', () => localStorage.setItem('plus18', '1'))
+        location.hash = 'plus18'
+    }
+}
+
 function initProductOptions () {
     var addProductBtns = document.querySelectorAll('[data-item-id]')
     if (!addProductBtns) return
@@ -131,7 +139,6 @@ function initProductOptions () {
         var options = document.querySelectorAll('[data-for="' + btn.dataset.itemId + '"]')
         if (!options) return
         for (var option of options) {
-            console.log('option', option)
             option.onchange = function () {
                 btn.dataset['itemCustom' + this.dataset.option + 'Value'] = this.value
             }

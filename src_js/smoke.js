@@ -119,29 +119,33 @@ var smokemachine = function (canvas, context, color) {
     }
 }
 
-function initSmoke (canvas) {
-    canvas.height = window.innerHeight
-    canvas.width = window.innerWidth
-    var blue = [1, 5, 253]
-    // var green = [220, 231, 117]
-    var party = smokemachine(canvas, canvas.getContext('2d'), blue)
-    party.start()
+function initSmoke () {
+    try {
+        var canvas = document.getElementById('backgroundcanvas')
+        if (!canvas) return
 
-    document.addEventListener('resize', function (e) {
         canvas.height = window.innerHeight
         canvas.width = window.innerWidth
-    })
+        var blue = [1, 5, 253]
+        // var green = [220, 231, 117]
+        var party = smokemachine(canvas, canvas.getContext('2d'), blue)
+        party.start()
 
-    document.addEventListener('mousemove', function (e) {
-        var x = e.clientX
-        var y = e.clientY
-        var n = 0.5
-        var t = Math.floor(Math.random() * 200) + 3800
-        party.addsmoke(x, y, n, t)
-    })
+        document.addEventListener('resize', function (e) {
+            canvas.height = window.innerHeight
+            canvas.width = window.innerWidth
+        })
 
-    // Uncomment for a steady smoke at the bottom middle of the screen
-    // setInterval(() => party.addsmoke(window.innerWidth / 2, window.innerHeight, 1), 100)
+        document.addEventListener('mousemove', function (e) {
+            var x = e.clientX
+            var y = e.clientY
+            var n = 0.5
+            var t = Math.floor(Math.random() * 200) + 3800
+            party.addsmoke(x, y, n, t)
+        })
+        // Uncomment for a steady smoke at the bottom middle of the screen
+        // setInterval(() => party.addsmoke(window.innerWidth / 2, window.innerHeight, 1), 100)
+    } catch (e) { console.error('smoke failed', e) }
 }
 
 export {initSmoke}

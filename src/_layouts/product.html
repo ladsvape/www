@@ -1,15 +1,48 @@
 ---
 layout: default
 ---
+<div>
 <div class="container">
 	<div class="product-container">
-		{% include product-styles.html product=page type='dest' %}
+		{% include product-image.html product=page type='dest' %}
 		<div class="product-details" id="add">
 			<h3>{{ page.name }} - ${{ page.price }}</h3>
 			{{ page.description_markdown | markdownify }}
 
-			<div class="button">{% include snipcart-button.html product=page %}</div>
+			<div class="button">
+				{% assign colors = "" %}
+				{% for style in page.styles %}
+					{% assign colors = colors | append: '|' | append: style.name %}
+				{% endfor %}
+				{% assign colors = colors | remove_first: '|' %}
+				<button class="snipcart-add-item"
+					data-item-name="{{ page.name }}"
+					data-item-id="{{ page.sku }}"
+					data-item-image="{{ page.styles.first.image }}"
+					data-item-description="{{ page.description }}"
+					data-item-custom1-name="Size"
+					data-item-custom1-options="{{ page.sizes | join: '|' }}"
+					data-item-custom1-value="{{ page.defaultsize }}"
+					data-item-url="{{ page.url }}"
+					data-item-price="{{ page.price }}">
+					Add to cart
+				</button>
+			</div>
+
+			<br>
+			<div style="max-width: 200px" class="form-with-input-label">
+			
+			<label for="size">Size</label>
+			<select data-for="{{ page.sku }}" data-option="1" name="size">
+				{% for size in page.sizes %}
+					{% assign str = size | split: '[' %}
+					{% assign value = str[0] %}
+					<option value="{{ value }}" {% if value == page.defaultsize %}selected{% endif %}>{{ size }}</option>
+				{% endfor %}
+			</select>
+			</div>
 		</div>
 	</div>
 	<div id="disqus_thread"></div>
+</div>
 </div>

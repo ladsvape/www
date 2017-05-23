@@ -14,5 +14,6 @@ sizes:
   - Medium
   - Large
   - XL
+defaultsize: Medium
 image: /images/products/placeholder.png
 ---

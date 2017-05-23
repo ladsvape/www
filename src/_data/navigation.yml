@@ -10,3 +10,7 @@
   link: /contact/
   new_window: false
   highlight: false
+- name: Your flavour
+  link: /your-flavour/
+  new_window: false
+  highlight: false

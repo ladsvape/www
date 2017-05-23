@@ -32,6 +32,8 @@ document.addEventListener('DOMContentLoaded', e => {
 
         var trackElement = document.getElementById('trackorder')
         if (trackElement) initTrackOrder(trackElement)
+
+        initProductOptions()
     })
 
     if (!window.usedTransition) document.body.dispatchEvent(new Event('pageloaded'))
@@ -120,6 +122,21 @@ function initSnipCart () {
         window.Snipcart.subscribe('cart.ready', () => snipcartReady(window.Snipcart))
     }
     document.body.appendChild(a)
+}
+
+function initProductOptions () {
+    var addProductBtns = document.querySelectorAll('[data-item-id]')
+    if (!addProductBtns) return
+    for (var btn of addProductBtns) {
+        var options = document.querySelectorAll('[data-for="' + btn.dataset.itemId + '"]')
+        if (!options) return
+        for (var option of options) {
+            console.log('option', option)
+            option.onchange = function () {
+                btn.dataset['itemCustom' + this.dataset.option + 'Value'] = this.value
+            }
+        }
+    }
 }
 
 function initDisquis (domEl) {

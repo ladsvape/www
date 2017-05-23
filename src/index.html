@@ -10,7 +10,7 @@ layout: default
 		{% for product in site.products %}
 		{% if product.disabled == false %}
 		<li>
-			{% include product-styles.html product=product type='source' includeDetails='true' %}
+			{% include product-image.html product=product type='source' %}
 		</li>
 		{% endif %}
 		{% endfor %}

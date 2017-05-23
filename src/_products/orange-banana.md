@@ -11,6 +11,7 @@ sku: orange banana
 stock: 10
 sizes:
   - 30mL
-  - 100mL
+  - 100mL[+1.00]
+defaultsize: 100mL[+1.00]
 image: /images/products/placeholder.png
 ---

@@ -3,7 +3,6 @@ layout: textpage
 title: Shipping / Delivery
 hero:
   text: Shipping Services
-  image: images/shipping.jpg
 ---
 
 ### Delivery Details

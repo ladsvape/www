@@ -73,10 +73,10 @@
 }
 
 footer {
-	padding: 50px 0 50px 0;
+	flex-shrink: 0;
+	padding: 50px 20px 20px 20px;
 	// font-size: 1.1rem;
-	position: relative;
-	background: $brand-color;
+	background: #f0f4c3;
 	color: $text-on-brand-color;
 
 	.copyright {
@@ -90,11 +90,20 @@ footer {
 
 	}
 
-	&,
 	a {
 		color: $text-on-brand-color;
-		transition: 200ms ease-in color;
-	}	
+		transition: 200ms color;
+		text-decoration: none;
+
+		&:hover {
+			color: $text-on-brand-color-hover;
+		}
+
+		.active {
+			color: $text-on-brand-color-active;
+			text-decoration: underline;
+		}
+	}
 
 	h2 {
 		// font-size: 1.4rem;
@@ -106,13 +115,5 @@ footer {
 		@extend %flexbox;
 		@include flex-flow(wrap);
 		margin: -10px -10px 10px -10px;
-	}
-
-	a {
-		text-decoration: none;
-
-		&:hover {
-			color: $text-on-brand-color-hover;
-		}
 	}
 }

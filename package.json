@@ -11,10 +11,14 @@
   "license": "",
   "private": true,
   "scripts": {
-    "dev": "node build.js && bundle exec jekyll serve",
+    "js": "node build.js",
+    "jekyll": "bundle exec jekyll b",
+    "dev": "concurrently --kill-others 'node build.js watch' 'bundle exec jekyll serve'",
     "build": "node build.js && bundle exec jekyll b"
   },
   "dependencies": {
+    "barba.js": "^1.0.0",
+    "concurrently": "^3.4.0",
     "jquery": "^3.2.1"
   },
   "devDependencies": {
@@ -26,6 +30,7 @@
     "babel-plugin-transform-runtime": "^6.22.0",
     "babel-preset-env": "^1.2.0",
     "babel-register": "^6.22.0",
+    "babili-webpack-plugin": "0.0.11",
     "eslint": "^3.14.1",
     "eslint-config-standard": "^6.2.1",
     "eslint-friendly-formatter": "^2.0.7",

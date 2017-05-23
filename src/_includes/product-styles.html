@@ -1,9 +1,0 @@
-<div class="styles">
-	{% for imageurl in include.product.image %}
-		<div class="style" data-item-id="{{ forloop.index }}" {% unless forloop.first %}style="display: none"{% endunless %}>
-			<a href="{{ include.product.url }}">
-				<img src="{{ imageurl }}">
-			</a>
-		</div>
-	{% endfor %}
-</div>

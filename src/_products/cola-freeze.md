@@ -9,9 +9,11 @@ price: '9'
 sku: colafreeze
 stock: 10
 sizes:
-  - Small
-  - Medium
-  - Large
-  - XL
-image: /images/products/placeholder.png
+  - 30mL
+  - 100mL[+1.00]
+defaultsize: 100mL
+image: /images/products/containment-low.png
+imagefg: /images/products/blueberry.png
+imagebg: /images/products/blueberries-bg-low.jpg
+imagecolor: blue
 ---

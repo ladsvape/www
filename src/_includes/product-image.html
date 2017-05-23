@@ -1,0 +1,30 @@
+<a class="styles" href="{{ include.product.url }}"
+	id="{{ include.product.url | slugify }}"
+	data-transitiontype="{{ include.type }}"
+	data-transitionid="{{ include.product.url | slugify }}">
+	{% if include.product.imagebg %}
+	{% assign bgimage = include.product.imagebg %}
+	{% else %}
+	{% assign bgimage = include.product.image %}
+	{% endif %}
+
+	<div class="infobg" style="background-image:url({{ bgimage }})"></div>
+	<div class="info">
+		<span class="name">{{ include.product.name }}</span>
+		<span class="price">${{ include.product.price }}</span>
+	</div>
+
+	{% if include.product.imagefg %}
+	<img class="fg" src="{{ include.product.imagefg }}">
+	{% endif %}
+
+	<div class="bg" style="background-image:url({{ bgimage }})">
+		{% if include.product.imagebg %}
+		<img class="bottle"
+			{% if include.product.imagecolor %}
+			style="filter: drop-shadow(4px 4px 10px {{include.product.imagecolor}})"
+			{% endif %}
+			src="{{ include.product.image }}">
+		{% endif %}
+	</div>
+</a>

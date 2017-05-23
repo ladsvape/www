@@ -9,9 +9,9 @@ group :jekyll_plugins do
 	gem 'jekyll-seo-tag', '2.1.0'
 end
 
-gem "uglifier", :require => false
+gem "uglifier", :require => true
 gem "sprockets-es6", "~> 0.6", :require => false
-gem "autoprefixer-rails", "~> 6.0", :require => false
+gem "autoprefixer-rails", "~> 6.0", :require => true
 gem "font-awesome-sass", "~> 4.4", :require => false
 gem "bootstrap-sass", "~> 3.3", :require => false
 gem "mini_magick", "~> 4.2", :require => false

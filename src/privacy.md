@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: textpage
 title: Privacy
 hero: Your Privacy Matters
 ---

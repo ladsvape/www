@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: textpage
 title: Laws on Nicotine
 hero: Laws on Nicotine
 ---

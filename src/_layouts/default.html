@@ -2,104 +2,111 @@
 layout: compress
 ---
 <!doctype html>
-
+{% if page.hero.text %}
+	{% assign hero = page.hero.text %}
+{% elsif page.hero %}
+	{% assign hero = page.hero %}
+{% else %}
+	{% assign hero = page.name %}
+{% endif %}
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' https://* 'unsafe-inline'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https://*.disqus.com https://*.disquscdn.com https://*.snipcart.com https://*.google-analytics.com https://maps.googleapis.com https://csi.gstatic.com data:; child-src *" />
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-		<link rel="stylesheet" href="{{ "css/screen.css" | relative_url}}">
-		<link rel="icon" type="image/png" href="{{ "images/favicon.png" | relative_url }}">
-		<link rel="prefetch" href="{{ "about/" | relative_url}}">
-		<link rel="prefetch" href="{{ "contact/" | relative_url}}">
-		{% seo %}
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' https://* 'unsafe-inline' data:; script-src 'self' 'unsafe-eval' 'unsafe-inline' data: https://disqus.com https://*.disqus.com https://*.disquscdn.com https://*.snipcart.com https://*.google-analytics.com https://maps.googleapis.com https://csi.gstatic.com; child-src *" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+	{% css main %}
+	<link rel="manifest" href="/manifest.json">
+	<link rel="icon" type="image/png" href="{{ "images/favicon.png" | relative_url }}">
+	<link rel="prefetch" href="{% link about.html %}">
+	<link rel="prefetch" href="{% link contact.html %}">
+	{% seo %}
 
-		<script defer type="text/javascript" src="{{ "/js/bundle.js" | relative_url }}" charset="utf-8"></script>
-	</head>
-	<body>
-		<header>
-			<div class="container">
-				<div class="company-name"><a href="{{ site.baseurl | relative_url }}/"><img src="{{"images/logo.png" | relative_url}}" /></a></div>
-				<nav>
-					<a class="nav-toggle" id="open-nav" href="#">&#9776;</a>
-					{% for link in site.data.navigation %}
-						{% assign class = "" %}
-						{% if link.highlight %}
-							{% assign class = class | append: " highlight" %}
-						{% endif %}
-
-						{% if link.name == page.title %}
-							{% assign class = class | append: " active" %}
-						{% endif %}
-						<a href="{{ link.link }}" class="{{ class }}" {% if link.new_window %}target="_blank"{% endif %}>{{ link.name }}</a>
-					{% endfor %}
-					<a href="#" class="cart snipcart-checkout"><i class="material-icons">shopping_cart</i><span>View Cart</span></a>
-				</nav>
-			</div>
-		</header>
-
-		<section class="hero" {% if page.hero.image %}style="background-image:url({{ page.hero.image | relative_url }})"{% endif %}>
-			<div class="text-container">
-				{% if page.hero %}
-					{% if page.hero.text %}
-					<h2>{{ page.hero.text }}</h2>
-					{% else %}
-					<h2>{{ page.hero }}</h2>
+	<script defer type="text/javascript" src="{{ "/js/bundle.js" | relative_url }}" charset="utf-8"></script>
+</head>
+<body>
+	<header class="hero-image" {% if page.hero.image %}style="background-image:url({{ page.hero.image | relative_url }})"{% endif %}>
+		<div class="container">
+			<!--<div class="company-name">
+				<a href="{{ site.baseurl | relative_url }}/">
+				<img src="{{"images/logo.png" | relative_url}}" />
+				</a>
+			</div>-->
+			<section class="hero text-container" >
+				<h2 class="hero-title">{{ hero }}</h2>
+			</section>
+			<div id="mainnav">
+			<nav>
+				<a class="nav-toggle" id="open-nav" href="#">&#9776;</a>
+				{% for link in site.data.navigation %}
+					{% assign class = "" %}
+					{% if link.highlight %}
+						{% assign class = class | append: " highlight" %}
 					{% endif %}
-				{% elsif page.name %}
-					<h2>{{ page.name }}</h2>
-				{% endif %}
+
+					{% if link.name == page.title %}
+						{% assign class = class | append: " active" %}
+					{% endif %}
+					<a href="{{ link.link }}" class="{{ class }}" data-linkname="{{ link.name }}"
+						{% if link.new_window %}target="_blank"{% endif %}>{{ link.name }}</a>
+				{% endfor %}
+				<span style="flex: 1 0 auto"> </span>
+				<a href="#" class="cart snipcart-checkout">
+					<i class="material-icons">shopping_cart</i><span>View Cart</span>
+				</a>
+			</nav>
 			</div>
-		</section>
+		</div>
+	</header>
+
+	<canvas id="backgroundcanvas"></canvas>
+
+	<main id="barba-wrapper">
+		<div class="barba-container" data-namespace="homepage"
+			data-pagetitle="{{ page.title }}" data-hero="{{ hero }}"
+			{% if page.hero.image %}data-heroimage="{{ page.hero.image | relative_url }}"{% endif %}
 
 		{{ content }}
-		<footer>
-			<div class="container">
+		
+		</div>
+	</main>
 
-<form action="//ladsvape.us15.list-manage.com/subscribe/post?u=794f3957dbeed7507ac898d63&amp;id=16d33fdcf0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-	<div class="newsletter-form">
-		<label for="mce-EMAIL">Email Address </label>
-		<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
-	</div>
-	<div id="mce-responses" class="newsletter-errors">
-		<div class="response" id="mce-error-response" style="display:none"></div>
-		<div class="response" id="mce-success-response" style="display:none"></div>
-	</div>
-    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_794f3957dbeed7507ac898d63_16d33fdcf0" tabindex="-1" value=""></div>
-    <div><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-</form>
+	{% include newsletter.html %}
 
-				<div class="footer-columns">
-					{% for column in site.data.footer %}
-					<ul class="footer-links">
-						<li><h4>{{ column.title }}</h4></li>
-						{% for link in column.links %}
-							{% assign class = "" %}
-							{% if link.highlight %}
-								{% assign class = class | append: " highlight" %}
-							{% endif %}
+	<footer><div class="container">
+		<div class="footer-columns">
+		{% for column in site.data.footer %}
+		<ul class="footer-links">
+			<li><h4>{{ column.title }}</h4></li>
+			{% for link in column.links %}
+				{% assign class = "" %}
+				{% if link.highlight %}
+					{% assign class = class | append: " highlight" %}
+				{% endif %}
 
-							{% if link.name == page.title %}
-								{% assign class = class | append: " active" %}
-							{% endif %}
-							{% if link.social_icon %}
-								{% assign class = class | append: link.social_icon + "-icon" %}
-							{% endif %}
-							<li><a class="{{ class }}" {% if link.new_window %}target="_blank" href="{{ link.link }}"{% else %}href="{{ link.link | relative_url }}"{% endif %}
-								>
-								{{ link.name }}
-								{% if link.social_icon %}
-									{% include social-icon.html icon=link.social_icon %}
-								{% endif %}
-							</a></li>
-						{% endfor %}
-					</ul>
-					{% endfor %}
-				</div>
-				<p class="copyright">© {{ site.time | date: '%Y' }} {{ site.title }}</p>
-			</div>
-		</footer>
-	</body>
+				{% if link.name == page.title %}
+					{% assign class = class | append: " active" %}
+				{% endif %}
+				{% if link.social_icon %}
+					{% assign class = class | append: link.social_icon + "-icon" %}
+				{% endif %}
+				<li>
+					<a class="{{ class }}"
+						{% if link.new_window %}target="_blank" href="{{ link.link }}"
+						{% else %}href="{{ link.link | relative_url }}"{% endif %}
+						data-linkname="{{ link.name }}"
+					>
+					{{ link.name }}
+					{% if link.social_icon %}
+						{% include social-icon.html icon=link.social_icon %}
+					{% endif %}
+				</a></li>
+			{% endfor %}
+		</ul>
+		{% endfor %}
+		</div>
+		<p class="copyright">© {{ site.time | date: '%Y' }} {{ site.title }}</p>
+	</div></footer>
+</body>
 </html>

@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: textpage
 title: Shipping / Delivery
 hero:
   text: Shipping Services

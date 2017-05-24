@@ -1,0 +1,17 @@
+#addedflavours {
+    input {
+        border: 1px solid transparent;
+    }
+
+    a {
+        justify-self: end;
+        color: black;
+        transition: transform ease-in 0.3s;
+        height: 24px; // material-icons default font size
+    }
+
+    a:hover {
+        color: $brand-color;
+        transform: rotate(180deg);
+    }
+}

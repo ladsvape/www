@@ -56,7 +56,6 @@ function initChart () {
         newEl.min = selectedOption.dataset.min
         newEl.max = selectedOption.dataset.max
         newEl.value = selectedOption.dataset.value
-        newEl.style.border = '1px solid transparent'
         newEl.style.background = selectedOption.style.background
         // Call change function on change.
         newEl.onchange = dataChangeFun.bind(newEl)
@@ -69,7 +68,6 @@ function initChart () {
         newLabel.textContent = flavourname
 
         var btnRemove = document.createElement('a')
-        btnRemove.style.justifySelf = 'end'
         btnRemove.href = '#'
         var removeFuntion = function (fName, e) {
             e.stopPropagation()
@@ -78,7 +76,10 @@ function initChart () {
             for (var elem of elems) { elem.parentNode.removeChild(elem) }
         }
         btnRemove.onclick = removeFuntion.bind(null, flavourname)
-        btnRemove.textContent = 'X'
+        var btnIcon = document.createElement('i')
+        btnIcon.classList.add('material-icons')
+        btnIcon.textContent = 'close'
+        btnRemove.appendChild(btnIcon)
 
         // Add elements to the container
         newLabel.dataset.flavourrow = flavourname

@@ -75,6 +75,11 @@ label, input, textarea, select {
 	box-sizing: border-box;
 }
 
+input[type="checkbox"] {
+	width: auto;
+    display: inline;
+}
+
 .radio-input {
 	line-height: 1;
 	margin: 20px 0;

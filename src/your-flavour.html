@@ -20,17 +20,18 @@ hero: Create your own flavour
 <form action="https://formspree.io/ladsvape@gmail.com"
       method="POST" class="contact-form">
 
+    <h4>Your details</h4>
+    <div class="tile">
     <label for="name">Full Name</label>
     <input type="text" name="name" id="name" placeholder="Enter your name..." autofocus>
 
     <label for="email">Email Address</label>
     <input type="email" name="_replyto" id="_replyto" placeholder="Enter your email..." required inputmode="email">
-
-    <br>
+    </div>
 
     <h4>Strength of flavours</h4>
-    <div class="twoflex">
-        <div class="tile" style="align-self: flex-start;">
+    <div class="twoflex tile">
+        <div style="align-self: flex-start;">
             <span id="noflavours">There are currently no flavours in your mixture</span>
             <div class="threegrid" id="addedflavours">
             </div>
@@ -59,18 +60,29 @@ hero: Create your own flavour
     </div>
 
     <h4>Propylene glycol / Vegetable glycerine</h4>
-    <div class="toomuchpg">Don't take to much of PG blabla</div> 
-    <div class="toomuchvg">Don't take to much of VG blabla</div> 
-    <div style="display:flex;flex-wrap: nowrap;">
-        <label style="flex: 0 1 50px;align-self:center;margin:0" for="pgvg">PG</label>
-        <input style="flex: 2 0 auto;" type="range" name="pgvg"
-                    min="1" value="50"
-                    max="100" step="1">
-        <label style="flex: 0 1 50px;align-self:center;margin:0" for="pgvg">VG</label>
+    <div class="tile">
+        <div class="toomuchpg">Don't take to much of PG blabla</div> 
+        <div class="toomuchvg">Don't take to much of VG blabla</div> 
+        <div style="display:flex;flex-wrap: nowrap">
+            <label style="flex: 0;align-self:center;margin:0" for="pgvg">PG</label>
+            <input style="flex: 1;" type="range" name="pgvg"
+                        min="1" value="50"
+                        max="100" step="1">
+            <label style="flex: 0;align-self:center;margin:0" for="pgvg">VG</label>
+        </div>
     </div>
 
-    <label for="message">Comments</label>
-    <textarea name="message" id="message" placeholder="Enter a comment if you like..."></textarea>
+    <h4>Nicotine</h4>
+    <div class="tile">
+        <input type="checkbox" disabled />Nicotine*<br><br>
+        *Unfortunately we are not allowed to sell products which contain nicotine in New Zealand.
+        Please have a look at <a href="/nicotine/">this page</a> though.
+    </div>
+
+    <h4>Comments</h4>
+    <div class="tile">
+        <textarea name="message" id="message" placeholder="Enter a comment if you like..."></textarea>
+    </div>
 
     <input type="submit" value="Send flavour suggestion">
 </form>

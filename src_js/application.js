@@ -97,14 +97,18 @@ function snipcartReady (Snipcart) {
         snipcartEl.classList.add('cardTransitionIn')
     })
 
-    var closeEl = document.getElementById('snipcart-cartitems-continue-top')
-    closeEl.onclick = function (event) {
+    var closeFun = function (event) {
+        event.stopPropagation()
+        event.preventDefault()
         var snipcartEl = document.querySelector('.snip-layout')
         snipcartEl.classList.remove('cardTransitionIn')
         snipcartEl.classList.add('cardTransitionOut')
         setTimeout(() => { Snipcart.api.modal.close() }, 600)
-        event.stopPropagation()
     }
+    var closeEl = document.getElementById('snipcart-cartitems-continue-top')
+    if (closeEl) closeEl.onclick = closeFun
+    closeEl = document.getElementById('snipcart-close')
+    if (closeEl) closeEl.onclick = closeFun
 }
 
 function initSnipCart () {

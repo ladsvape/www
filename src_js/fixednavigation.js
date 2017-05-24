@@ -6,7 +6,7 @@ function initFixedNavigation () {
 
     let elem = document.getElementById('mainnav')
     let headerEl = document.querySelector('header')
-    const navY = headerEl.getBoundingClientRect().height
+    const navY = headerEl.getBoundingClientRect().height - elem.getBoundingClientRect().height
     if (!elem) {
         console.error('initFixedNavigation element not found')
         return

@@ -12,3 +12,17 @@
     flex: 2 0 200px;
     margin-right: 0;
 }
+
+.twogrid {
+	display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    align-content: start;
+}
+
+.threegrid {
+	display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    align-content: start;
+}

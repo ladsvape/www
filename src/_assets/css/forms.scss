@@ -2,13 +2,30 @@
 .button button,
 .btn,
 input[type=submit] {
-	color: #fff;
+	color: #333;
 	text-decoration: none;
 	padding: 15px 30px;
 	background: $brand-color;
 	border-radius: 3px;
 	border: 1px solid lighten($brand-color, 10%);
 	-webkit-appearance: none;
+}
+
+.btn.small {
+	color: #333;
+	text-decoration: none;
+	padding: 10px;
+	background: $brand-color;
+	border-radius: 3px;
+	border: 0;
+	-webkit-appearance: none;
+}
+
+select {
+	color: #333;
+	background: $brand-color;
+	border-radius: 3px;
+	border: 1px solid lighten($brand-color, 10%);
 }
 
 .button a,
@@ -97,7 +114,7 @@ input, textarea {
 	border: 1px solid #DDDDDD;
 }
 
-input:focus, input:focus, input:focus, textarea:focus, a:focus {
+input:focus, input:focus, input:focus, textarea:focus {
 	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
 	border: 1px solid rgba(81, 203, 238, 1);
 }

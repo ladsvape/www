@@ -64,6 +64,11 @@ header {
 	left: 0px;
 	right: 0px;
 	background-color: $header-bg;
+	transition: background-color linear 0.3s;
+}
+
+.navbar-fixed:hover  {
+	background-color: $header-bg-full;
 }
 
 nav {

@@ -11,8 +11,7 @@ module.exports = {
         filename: 'bundle.js'
     },
     plugins: [
-      new BabiliPlugin({}, {
-            test: /src_js\/\.(js)$/,
+      new BabiliPlugin({"presets": [["babili", {}]]}, {
             comments: false
       })
     ],

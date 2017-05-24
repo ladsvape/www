@@ -4,8 +4,9 @@ title: Your flavour
 hero: Create your own flavour
 ---
 <p>
-    Our experts tries hard to provide you with our range of awesome ready-to-use and thoroughly taste tested 
-    juices for the best experience. But we don't want to be in the way of creative minds, so we are doing what no other is doing!
+    Our experts try hard to provide you with our range of awesome ready-to-use and thoroughly taste tested 
+    juices for the best experience. But we don't want to be in the way of creative minds,
+    so we are doing what no other is doing!
     We are offering you to make the juices!
 </p>
 <p>
@@ -19,7 +20,6 @@ hero: Create your own flavour
 <form action="https://formspree.io/ladsvape@gmail.com"
       method="POST" class="contact-form">
 
-    <h3>Send us your flavour</h3>
     <label for="name">Full Name</label>
     <input type="text" name="name" id="name" placeholder="Enter your name..." autofocus>
 
@@ -28,25 +28,45 @@ hero: Create your own flavour
 
     <br>
 
+    <h4>Strength of flavours</h4>
     <div class="twoflex">
         <div class="tile" style="align-self: flex-start;">
-            <div>Available flavours</div>
+            <span id="noflavours">There are currently no flavours in your mixture</span>
+            <div class="threegrid" id="addedflavours">
+            </div>
+            <hr>
+            Add a flavour
             <div class="twogrid">
-            {% for flavour in site.data.mixflavour %}
-            <span>{{ flavour.name }}</span>
-            <input type="range" name="{{ flavour.name }}"
-                data-flavourid="{{ flavour.id }}"
-                data-flavourname="{{ flavour.name }}"
-                data-flavourcolor="{{ flavour.color }}"
-                min="{{ flavour.min }}" value="{{ flavour.default }}"
-                max="{{ flavour.max }}" step="1"
-                style="background-color:{{ flavour.color }};border: 1px solid transparent;">
-            {% endfor %}
+                <select name="ignore" id="selectflavour" style="margin-right:10px">
+                {% for flavour in site.data.mixflavour %}
+                <option name="{{ flavour.name }}"
+                    data-flavourid="{{ flavour.id }}"
+                    data-flavourname="{{ flavour.name }}"
+                    data-flavourcolor="{{ flavour.color }}"
+                    data-min="{{ flavour.min }}" data-value="{{ flavour.default }}"
+                    data-max="{{ flavour.max }}"
+                    style="background:{{ flavour.color }};border: 1px solid transparent;">
+                    {{ flavour.name }}
+                </option>
+                {% endfor %}
+                </select>
+                <button class="btn small" id="addflavour">Add flavour</button>
             </div>
         </div>
         <div>
-            <canvas id="flavourchart" width="300" height="300"></canvas>
+            
         </div>
+    </div>
+
+    <h4>Propylene glycol / Vegetable glycerine</h4>
+    <div class="toomuchpg">Don't take to much of PG blabla</div> 
+    <div class="toomuchvg">Don't take to much of VG blabla</div> 
+    <div style="display:flex;flex-wrap: nowrap;">
+        <label style="flex: 0 1 50px;align-self:center;margin:0" for="pgvg">PG</label>
+        <input style="flex: 2 0 auto;" type="range" name="pgvg"
+                    min="1" value="50"
+                    max="100" step="1">
+        <label style="flex: 0 1 50px;align-self:center;margin:0" for="pgvg">VG</label>
     </div>
 
     <label for="message">Comments</label>
@@ -54,6 +74,3 @@ hero: Create your own flavour
 
     <input type="submit" value="Send flavour suggestion">
 </form>
-
-<script asnyc defer id="chartscript"
-    src="{{ "/js/chart.min.js" | relative_url }}"></script>

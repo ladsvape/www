@@ -4,6 +4,7 @@ name:
 price:
 sku:
 description:
+maxquantity: 5
 sizes:
   - XS
   - Small

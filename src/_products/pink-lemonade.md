@@ -9,6 +9,7 @@ garment_type:
 price: '9'
 sku: tiger
 stock: 10
+maxquantity: 5
 sizes:
   - Small
   - Medium

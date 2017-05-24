@@ -140,7 +140,11 @@ function initProductOptions () {
         if (!options) return
         for (var option of options) {
             option.onchange = function () {
-                btn.dataset['itemCustom' + this.dataset.option + 'Value'] = this.value
+                if (this.name === 'quantity') {
+                    btn.dataset.itemQuantity = this.value
+                } else {
+                    btn.dataset['itemCustom' + this.dataset.option + 'Value'] = this.value
+                }
             }
         }
     }

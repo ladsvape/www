@@ -4,8 +4,8 @@
 }
 
 .contact-box {
-	@extend %flexbox;
-	@include flex-flow(wrap);
+	display: flex;
+	flex-flow: wrap;
 
 	form {
 		width: 100%

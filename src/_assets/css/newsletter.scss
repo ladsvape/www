@@ -1,0 +1,26 @@
+
+#newsletter {
+	h1,h2,h3,h4,h5,h6 {
+		text-align: center;
+		width: 100%;
+	}
+
+	.info {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.newsletter-errors {
+		width: 100%;
+	}
+}
+
+#newsletter:target {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+#plus18:target {
+	opacity: 1;
+	pointer-events: auto;
+}

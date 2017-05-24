@@ -14,9 +14,9 @@ hero: Track my order
     class="tile"
     onsubmit="this.action = 'http://trackandtrace.courierpost.co.nz/search/'+this.tracking.value"
     target="_blank" method="post" id="trackorder">
-    <div class="form-with-input-label">
-        <label for="tracking">Tracking number</label>
+    <label class="input-label">
+        <span>Tracking number</span>
         <input type="number" name="tracking" placeholder="Enter your 10 digit number"></input>
-    </div>
+    </label>
     <input name="submit" type="submit" value="Search"></input>
 </form>

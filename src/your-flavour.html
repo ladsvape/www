@@ -4,17 +4,56 @@ title: Your flavour
 hero: Create your own flavour
 ---
 <p>
-    Our experts tries hard to provide you with our range of awesome ready-to-use and thoroughly tastes tested 
+    Our experts tries hard to provide you with our range of awesome ready-to-use and thoroughly taste tested 
     juices for the best experience. But we don't want to be in the way of creative minds, so we are doing what no other is doing!
     We are offering you to make the juices!
 </p>
 <p>
     Choose from a variety of different flavours, mix and match them together and create
-    your very own "unique"" taste. Our experts will proof-test your recipe and send the final
-    master piece in the desired quantity right to you, hassle free.
+    your very own <i>unique</i> taste. Our experts will proof-test your recipe and send the final
+    master piece in the desired quantity right to you,
+    <span data-tooltip="*Almost hassle free at least; Please allow the components to settle for at least a week.">hassle free</span>*.
 </p>
-<small>*Almost hassle free at least; Please allow the components to settle for at least a weeks.</small>
 
-<div class="tile" style="background-color: rgb(255, 128, 128);margin-top:20px;">
-    We are working on this :)
-</div>
+
+<form action="https://formspree.io/ladsvape@gmail.com"
+      method="POST" class="contact-form">
+
+    <h3>Send us your flavour</h3>
+    <label for="name">Full Name</label>
+    <input type="text" name="name" id="name" placeholder="Enter your name..." autofocus>
+
+    <label for="email">Email Address</label>
+    <input type="email" name="_replyto" id="_replyto" placeholder="Enter your email..." required inputmode="email">
+
+    <br>
+
+    <div class="twoflex">
+        <div class="tile" style="align-self: flex-start;">
+            <div>Available flavours</div>
+            <div class="twogrid">
+            {% for flavour in site.data.mixflavour %}
+            <span>{{ flavour.name }}</span>
+            <input type="range" name="{{ flavour.name }}"
+                data-flavourid="{{ flavour.id }}"
+                data-flavourname="{{ flavour.name }}"
+                data-flavourcolor="{{ flavour.color }}"
+                min="{{ flavour.min }}" value="{{ flavour.default }}"
+                max="{{ flavour.max }}" step="1"
+                style="background-color:{{ flavour.color }};border: 1px solid transparent;">
+            {% endfor %}
+            </div>
+        </div>
+        <div>
+            <canvas id="flavourchart" width="300" height="300"></canvas>
+        </div>
+    </div>
+
+    <label for="message">Comments</label>
+    <textarea name="message" id="message" placeholder="Enter a comment if you like..."></textarea>
+
+    <input type="submit" value="Send flavour suggestion">
+</form>
+
+<script asnyc defer id="chartscript"
+    src="{{ "/js/chart.min.js" | relative_url }}"></script>

@@ -92,6 +92,87 @@ main {
 	z-index: 5001;
 }
 
+.floating-btn {
+color: #fff;
+	text-decoration: none;
+	background: $brand-color;
+	border: 1px solid lighten($brand-color, 10%);
+	z-index: 10;
+    position: fixed;
+	padding: 5px;
+	right: 20px;
+	bottom: 20px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-sizing: content-box;
+    color: #fff;
+    text-align: center;
+	transition: all ease-in-out .2s;
+	&:hover {
+		transform: rotate(360deg)
+	}
+	i.material-icons {
+		font-size: 48px !important;
+		width: 48px;
+		height: 48px;
+	}
+}
+
+[data-tooltip] {
+  border-bottom: 1px dotted $brand-color;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+[data-tooltip]:before,
+[data-tooltip]:after {
+	visibility: hidden;
+	opacity: 0;
+	pointer-events: none;
+}
+
+[data-tooltip]:before {
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  margin-bottom: 5px;
+  margin-left: -80px;
+  padding: 7px;
+  width: 160px;
+  border-radius: 3px;
+  background-color: #000;
+  background-color: hsla(0, 0%, 20%, 0.9);
+  color: #fff;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+/* Triangle hack to make tooltip look like a speech bubble */
+[data-tooltip]:after {
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -5px;
+  width: 0;
+  border-top: 5px solid #000;
+  border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+  border-right: 5px solid transparent;
+  border-left: 5px solid transparent;
+  content: " ";
+  font-size: 0;
+  line-height: 0;
+}
+
+/* Show tooltip content on hover */
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}
+
 blockquote {
 	padding: 18px 25px;
 	margin: 0 auto;
@@ -142,4 +223,11 @@ blockquote .quote:after {
 .thirds div {
  	flex: 1 1 200px;
 	padding: 50px 20px 0 20px;
+}
+
+.twogrid {
+	display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    align-content: start;
 }

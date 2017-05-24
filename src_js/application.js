@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: ['error', { "vars": "all", "varsIgnorePattern": "[iI]gnored" }] */
+
 import jQuery from '../node_modules/jquery/dist/jquery.min'
 import {initMap} from './maps'
 import {googleAnalyticsKey, snipcartKey} from './authkeys'
@@ -11,7 +13,7 @@ import {initTrackOrder} from './trackorder'
 window.jQuery = jQuery.noConflict()
 window.$ = window.jQuery
 
-document.addEventListener('DOMContentLoaded', e => {
+document.addEventListener('DOMContentLoaded', () => {
     initSnipCart()
     initGoogleAnalytics()
     initProductImages()
@@ -20,17 +22,14 @@ document.addEventListener('DOMContentLoaded', e => {
     initSmoke()
     init18plusMessage()
 
-    document.body.addEventListener('pageloaded', event => {
+    document.body.addEventListener('pageloaded', () => {
         if (window.ga) window.ga('send', 'pageview')
         var mapElement = document.getElementById('map')
         if (mapElement) initMap(mapElement)
 
-        var disqusElement = document.getElementById('disqus_thread')
-        if (disqusElement) initDisquis(disqusElement)
-
-        var trackElement = document.getElementById('trackorder')
-        if (trackElement) initTrackOrder(trackElement)
-
+        initDisquis()
+        initChart()
+        initTrackOrder()
         initProductOptions()
     })
 
@@ -150,7 +149,10 @@ function initProductOptions () {
     }
 }
 
-function initDisquis (domEl) {
+function initDisquis () {
+    var disqusElement = document.getElementById('disqus_thread')
+    if (!disqusElement) return
+
     window.disqus_config = function () {
         this.page.url = location.href
         this.page.identifier = location.pathname
@@ -164,6 +166,65 @@ function initDisquis (domEl) {
     s.src = 'https://ladsvape.disqus.com/embed.js'
     s.dataset.timestamp = 1 * new Date()
     document.body.appendChild(s)
+}
+
+function initChart () {
+    var chart = document.getElementById('flavourchart')
+    if (!chart) {
+        var chartscript = document.getElementById('chartscript')
+        if (!chartscript) return
+        chartscript.onload = () => initChart()
+        return
+    }
+
+    var flavours = document.querySelectorAll('[data-flavourid]')
+    var labels = []
+    var quantities = []
+    var colors = []
+
+    for (var flavour of flavours) {
+        labels.push(flavour.dataset.flavourname)
+        var storedValue = localStorage.getItem(flavour.dataset.flavourid)
+        if (!storedValue) storedValue = flavour.value
+        quantities.push(storedValue)
+        colors.push(flavour.dataset.flavourcolor)
+    }
+
+    var data = {
+        labels: labels,
+        datasets: [{ data: quantities, backgroundColor: colors, hoverBackgroundColor: colors }]
+    }
+
+    /* exported myChart */
+    var chartObj = new window.Chart(chart, {
+        type: 'pie',
+        data: data,
+        options: {
+            cutoutPercentage: 0
+        }
+    })
+
+    var dataChangeFun = function (dataIndex) {
+        chartObj.data.datasets[0].data[dataIndex] = '' + this.value
+        console.log('update', this.dataset.flavourid, this.value)
+        localStorage.setItem(this.dataset.flavourid, '' + this.value)
+        chartObj.update()
+    }
+
+    var d = document.getElementById('name')
+    if (d) {
+        d.value = localStorage.getItem('flavour_username')
+        d.onchange = function () { localStorage.setItem('flavour_username', this.value) }
+    }
+    d = document.getElementById('_replyto')
+    if (d) {
+        d.value = localStorage.getItem('flavour_email')
+        d.onchange = function () { localStorage.setItem('flavour_email', this.value) }
+    }
+
+    for (var i = 0; i < flavours.length; ++i) {
+        flavours[i].onchange = dataChangeFun.bind(flavours[i], i)
+    }
 }
 
 if ('serviceWorker' in navigator) {

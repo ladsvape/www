@@ -112,8 +112,8 @@ footer {
 	}
 
 	.footer-columns {
-		@extend %flexbox;
-		@include flex-flow(wrap);
+		display: flex;
+		flex-flow: wrap;
 		margin: -10px -10px 10px -10px;
 	}
 }

@@ -97,60 +97,12 @@ input, textarea {
 	border: 1px solid #DDDDDD;
 }
 
-input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, textarea:focus {
+input:focus, input:focus, input:focus, textarea:focus, a:focus {
 	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
 	border: 1px solid rgba(81, 203, 238, 1);
 }
 
-.newsletter-btn {
-	z-index: 10;
-    position: fixed;
-	padding: 5px;
-	right: 20px;
-	bottom: 20px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    box-sizing: content-box;
-    color: #fff;
-    text-align: center;
-	transition: all ease-in-out .2s;
-	&:hover {
-		transform: rotate(360deg)
-	}
-	i.material-icons {
-		font-size: 48px !important;
-		width: 48px;
-		height: 48px;
-	}
-}
-
-#newsletter:target {
-	opacity: 1;
-	pointer-events: auto;
-}
-
-#newsletter {
-	h1,h2,h3,h4,h5,h6 {
-		text-align: center;
-		width: 100%;
-	}
-
-	.info {
-		padding-top: 10px;
-		padding-bottom: 10px;
-	}
-
-	.newsletter-errors {
-		width: 100%;
-	}
-}
-
-#plus18:target {
-	opacity: 1;
-	pointer-events: auto;
-}
-
-.form-with-input-label {
+.input-label {
 	display: flex;
 
 	input, select {
@@ -159,7 +111,7 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, tex
 		min-width: 0px;
 	}
 
-	label {
+	label, span {
 		white-space: nowrap;
 		margin: 0;
 		flex: 0;
@@ -167,3 +119,5 @@ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus, tex
 		padding-right: 10px;
 	}
 }
+
+@import "mixins/forms_inputrange.scss";

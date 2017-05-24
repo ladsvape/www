@@ -9,31 +9,30 @@ layout: default
 			<h3>{{ page.name }} - ${{ page.price }}</h3>
 			{{ page.description_markdown | markdownify }}
 
-			<div style="max-width: 200px" class="form-with-input-label">
-			
-			<label for="size">Size</label>
-			<select data-for="{{ page.sku }}" data-option="1" name="size">
-				{% for size in page.sizes %}
-					{% assign str = size | split: '[' %}
-					{% assign value = str[0] %}
-					<option value="{{ value }}" {% if value == page.defaultsize %}selected{% endif %}>{{ size }}</option>
-				{% endfor %}
-			</select>
-			</div>
+			<label style="max-width: 200px" class="input-label">
+				<span>Size</span>
+				<select data-for="{{ page.sku }}" data-option="1" name="size">
+					{% for size in page.sizes %}
+						{% assign str = size | split: '[' %}
+						{% assign value = str[0] %}
+						<option value="{{ value }}" {% if value == page.defaultsize %}selected{% endif %}>{{ size }}</option>
+					{% endfor %}
+				</select>
+			</label>
 
 			<br>
 
-			<div style="max-width: 200px" class="form-with-input-label">
-			<label for="quantity">Quantity</label>
-			<select data-for="{{ page.sku }}" name="quantity">
-				{% for q in (1..page.maxquantity) %}
-					<option {% if q == 1 %}selected{% endif %}>{{ q }}</option>
-				{% endfor %}
-			</select>
+			<label style="max-width: 200px" class="input-label">
+				<span>Quantity</span>
+				<select data-for="{{ page.sku }}" name="quantity">
+					{% for q in (1..page.maxquantity) %}
+						<option {% if q == 1 %}selected{% endif %}>{{ q }}</option>
+					{% endfor %}
+				</select>
+			</label>
 			</div>
 
 			<br>
-
 
 			<div class="button">
 				{% assign colors = "" %}

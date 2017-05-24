@@ -1,4 +1,4 @@
-@import "mixins/flexbox";
+@import "mixins/twogrid";
 @import "mixins/columns";
 @import "variables";
 @import "elements";
@@ -9,4 +9,5 @@
 @import "navigation";
 @import "footer";
 @import "snipcart/snipcart";
-@import "pagetransitions"
+@import "pagetransitions";
+@import "newsletter";

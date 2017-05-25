@@ -1,18 +1,24 @@
-- name: Berry
-  id: berry
-  min: 0
-  max: 10
-  default: 3
-  color: '#FF6384'
-- name: Freeze
-  id: freeze
-  min: 0
-  max: 10
-  default: 2
-  color: '#36A2EB'
-- name: Lulaberry
-  id: lulaberry
-  min: 0
-  max: 10
-  default: 2
-  color: '#FFCE56'
+disallow-nicotine: true
+min-vg: 20
+min-pg: 20
+recommended-min-vg: 40
+recommended-min-pg: 40
+flavours:
+  - name: Berry
+    id: berry
+    min: 1
+    max: 10
+    default: 3
+    color: '#FF6384'
+  - name: Freeze
+    id: freeze
+    min: 1
+    max: 10
+    default: 2
+    color: '#36A2EB'
+  - name: Lulaberry
+    id: lulaberry
+    min: 1
+    max: 10
+    default: 2
+    color: '#FFCE56'

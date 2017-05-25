@@ -5,6 +5,7 @@ import {gmapsKey, mapPoint} from './authkeys'
 function initMap (domEl) {
     if (document.getElementById('mapscript')) return loadMap(domEl)
     var s = document.createElement('script')
+    s.crossorigin = 'anonymous'
     s.id = 'mapscript'
     s.src = 'https://maps.googleapis.com/maps/api/js?key=' + gmapsKey
     s.onload = () => loadMap(domEl)

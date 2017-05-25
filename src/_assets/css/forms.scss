@@ -75,6 +75,10 @@ label, input, textarea, select {
 	box-sizing: border-box;
 }
 
+label.inline {
+	display: inline;
+}
+
 input[type="checkbox"] {
 	width: auto;
     display: inline;
@@ -139,6 +143,21 @@ input:focus, input:focus, input:focus, textarea:focus {
 		flex: 0;
 		align-self: center;
 		padding-right: 10px;
+	}
+}
+
+.left-right-range {
+	display:flex;
+	flex-wrap: nowrap;
+
+	> * {
+		flex: 1;
+	}
+
+	*:first-child, *:last-child {
+		flex: 0;
+		align-self:center;
+		margin:0;
 	}
 }
 

@@ -26,13 +26,13 @@
 	pointer-events: auto;
 }
 
-#btnSnipcard[data-loading="true"] {
+a.cart.snipcart-checkout[data-loading="true"] {
 	pointer-events: none;
 	position:relative;
 	color: rgba(0,0,0,0.3)
 }
 
-#btnSnipcard[data-loading="true"]::before {
+a.cart.snipcart-checkout[data-loading="true"]::before {
 	opacity: 1;
 	content: '';
 	box-sizing: border-box;
@@ -57,4 +57,16 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+#snipcart-close {
+	position: absolute;
+	top: 2.85em;
+    right: 2em;
+    z-index: 1;
+	font-size: 12px;
+}
+
+#snipcart-cartitems-continue-top {
+	z-index: 2;
 }

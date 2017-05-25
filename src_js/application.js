@@ -1,13 +1,14 @@
 /* eslint no-unused-vars: ['error', { "vars": "all", "varsIgnorePattern": "[iI]gnored" }] */
 
 import {initMap} from './maps'
-import {googleAnalyticsKey, snipcartKey} from './authkeys'
+import {googleAnalyticsKey} from './authkeys'
 import {initSmoke} from './smoke'
 import {initPageTransition} from './pagetransition'
 import {initProductImages, uninitProductImages} from './productimages'
 import {initFixedNavigation} from './fixednavigation'
 import {initTrackOrder} from './trackorder'
 import {initChart} from './mixyourown'
+import {initSnipCart} from './shoppingcart'
 
 document.addEventListener('DOMContentLoaded', () => {
     initSnipCart()
@@ -78,6 +79,7 @@ function initGoogleAnalytics () {
     window[r] = window[r] || function () { (window[r].q = window[r].q || []).push(arguments) }
     window[r].l = 1 * new Date()
     var a = document.createElement('script')
+    a.crossorigin = 'anonymous'
     a.async = 1
     a.src = 'https://www.google-analytics.com/analytics.js'
     a.onload = function () {
@@ -85,56 +87,6 @@ function initGoogleAnalytics () {
         window[r]('send', 'pageview')
     }
     document.body.appendChild(a)
-}
-
-function snipcartReady (Snipcart) {
-    var cardBtn = document.getElementById('btnSnipcard')
-    if (cardBtn) cardBtn.dataset.loading = 'false'
-    Snipcart.api.configure('show_continue_shopping', true)
-    Snipcart.subscribe('cart.opened', function () {
-        var snipcartEl = document.querySelector('.snip-layout')
-        snipcartEl.classList.remove('cardTransitionOut')
-        snipcartEl.classList.add('cardTransitionIn')
-    })
-
-    var closeFun = function (event) {
-        event.stopPropagation()
-        event.preventDefault()
-        var snipcartEl = document.querySelector('.snip-layout')
-        snipcartEl.classList.remove('cardTransitionIn')
-        snipcartEl.classList.add('cardTransitionOut')
-        setTimeout(() => { Snipcart.api.modal.close() }, 600)
-    }
-    var closeEl = document.getElementById('snipcart-cartitems-continue-top')
-    if (closeEl) closeEl.onclick = closeFun
-    closeEl = document.getElementById('snipcart-close')
-    if (closeEl) closeEl.onclick = closeFun
-}
-
-function initSnipCart () {
-    // Unfortunately we need jQuery for snipcard
-    if (!window.$) {
-        var a = document.createElement('script')
-        a.async = 1
-        a.id = 'jquery'
-        a.src = '/js/jquery.min.js'
-        a.onload = function () {
-            window.jQuery = window.jQuery.noConflict()
-            window.$ = window.jQuery
-            if (!window.Snipcart) {
-                var a = document.createElement('script')
-                a.async = 1
-                a.id = 'snipcart'
-                a.dataset.apiKey = snipcartKey
-                a.src = '/js/snipcart2_0.js'
-                a.onload = function () {
-                    window.Snipcart.subscribe('cart.ready', () => snipcartReady(window.Snipcart))
-                }
-                document.body.appendChild(a)
-            }
-        }
-        document.body.appendChild(a)
-    }
 }
 
 function init18plusMessage () {
@@ -178,6 +130,7 @@ function initDisquis () {
         return
     }
     var s = document.createElement('script')
+    s.crossorigin = 'anonymous'
     s.id = 'disquis'
     s.src = 'https://ladsvape.disqus.com/embed.js'
     s.dataset.timestamp = 1 * new Date()

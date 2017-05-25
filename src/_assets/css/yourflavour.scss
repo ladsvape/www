@@ -12,6 +12,73 @@
 
     a:hover {
         color: $brand-color;
-        transform: rotate(180deg);
+        transform: scale(1.1,1.1);
     }
+}
+
+#flavourcanvas > * {
+    width: 100%;
+    height: 380px;
+    margin-top: 521px;
+    position: absolute;
+    transform-origin: bottom;
+    /* Change with JS for each element. z-index is decreasing. */
+    transform: translateY(0px); /* up to 380 */
+    transition: transform cubic-bezier(0.2, 0.6, 0.8, 0.4) 0.7s;
+    z-index: 1000;
+    path {
+        animation-name: waveAction;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-duration: 1.5s;
+    }
+}
+
+@keyframes waveAction {
+    0% {
+        transform: translateX(-300px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.select-flavours-tile {
+    align-self: flex-start;
+    flex: 1 1 200px;
+}
+
+.flavour-bottle {
+    background: url(/images/real_bottle.png);
+    height:521px;
+    width:200px;
+    margin:auto;
+}
+
+.flavour-bottle-overlay {
+    background: url(/images/real_bottle.png);
+    opacity:0.6;
+    height:521px;
+    width:200px;
+    position:absolute;
+    z-index:1001;
+    pointer-events: none;
+}
+
+.flavour-bottle-clip {
+    clip-path: url(#clipPolygon);
+    height:100%;
+    width:100%;
+}
+
+#noflavours {
+    position: relative;
+    top:200px;
+    left:20px;
+    color:black;
+}
+
+/** This class is for highlighting if pg or vg is too low */
+.highlight {
+    background-color: yellow
 }

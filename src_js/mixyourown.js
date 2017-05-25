@@ -126,7 +126,7 @@ function addFlavour (e) {
 
 function initMixYourOwn () {
     // Check if we are on the mix your own flavour page
-    var selectflavour = document.getElementById('selectflavour')
+    var selectflavour = document.querySelector('#newpage #selectflavour')
     if (!selectflavour) return
 
     // Check if all assumed elements are on the page
@@ -134,6 +134,27 @@ function initMixYourOwn () {
     flavoursContainer = document.getElementById('addedflavours')
     flavourcanvas = document.getElementById('flavourcanvas')
     if (!btnAddflavour || !flavoursContainer) return
+
+    var pgvgslider = document.getElementById('pgvgslider')
+    pgvgslider.onchange = function () {
+        const vgmin = this.dataset.vgMinRecommended
+        const pgmin = this.dataset.pgMinRecommended
+        const v = this.value
+        document.querySelectorAll('.toolesspg').forEach(item => {
+            if (v < pgmin) {
+                item.classList.add('highlight')
+            } else {
+                item.classList.remove('highlight')
+            }
+        })
+        document.querySelectorAll('.toolessvg').forEach(item => {
+            if (v > 100 - vgmin) {
+                item.classList.add('highlight')
+            } else {
+                item.classList.remove('highlight')
+            }
+        })
+    }
 
     // form validation
     document.getElementById('own-flavour-form').onsubmit = validateForm

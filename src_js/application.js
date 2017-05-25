@@ -9,6 +9,7 @@ import {initFixedNavigation} from './fixednavigation'
 import {initTrackOrder} from './trackorder'
 import {initMixYourOwn} from './mixyourown'
 import {initSnipCart} from './shoppingcart'
+import {initDisquis} from './disqus'
 
 document.addEventListener('DOMContentLoaded', () => {
     initSnipCart()
@@ -22,6 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // The "pagetransition.js" triggers a 'pageloaded' event when the face-in animation is completed
     document.body.addEventListener('pageloaded', () => {
         if (window.ga) window.ga('send', 'pageview')
+        initProductImages()
+        initMap()
+        initDisquis()
+        initMixYourOwn()
+        initTrackOrder()
+        initProductOptions()
     })
 
     if (!window.usedTransition) document.body.dispatchEvent(new Event('pageloaded'))
@@ -51,13 +58,6 @@ function pageEnter (newContentEl) {
     } else {
         heroImgEl.style.backgroundImage = ''
     }
-
-    initProductImages()
-    initMap()
-    initDisquis()
-    initMixYourOwn()
-    initTrackOrder()
-    initProductOptions()
 }
 
 function pageLeave () {
@@ -98,6 +98,7 @@ function init18plusMessage () {
     }
 }
 
+/* Responsible for the SIZE and QUANTITY fields on the product page */
 function initProductOptions () {
     var addProductBtns = document.querySelectorAll('[data-item-id]')
     if (!addProductBtns) return
@@ -114,26 +115,6 @@ function initProductOptions () {
             }
         }
     }
-}
-
-function initDisquis () {
-    var disqusElement = document.getElementById('disqus_thread')
-    if (!disqusElement) return
-
-    window.disqus_config = function () {
-        this.page.url = location.href
-        this.page.identifier = location.pathname
-    }
-    if (window.DISQUS) {
-        window.DISQUS.reset({ reload: true, config: window.disqus_config })
-        return
-    }
-    var s = document.createElement('script')
-    s.crossorigin = 'anonymous'
-    s.id = 'disquis'
-    s.src = 'https://ladsvape.disqus.com/embed.js'
-    s.dataset.timestamp = 1 * new Date()
-    document.body.appendChild(s)
 }
 
 if ('serviceWorker' in navigator) {

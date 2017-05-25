@@ -93,16 +93,18 @@ hero: Create your own flavour
         <li>Propylene glycol (PG) creates the throat hit which gives the sensation from smoking.
             The more PG the stronger the hit.
         </ul>
-        <span class="toomuchpg">PG should not be vaped without at least a concentration of 40% VG,
-            other which <span class="toomuchvg">the hit would be far too strong</span></span>.
-        <strong>PG is very thin in comparison to VG thus we recommend a ratio of 30% PG to 70% VG.</strong>
+        <span class="toolessvg">PG should not be vaped without at least a concentration of 40% VG</span>,
+            other which <span class="toolessvg">the hit would be far too strong</span>.
+        <strong><span class="toolesspg">PG is very thin in comparison to VG</span> thus we recommend a ratio of 30% PG to 70% VG.</strong>
         <br><br>
         <div class="left-right-range">
             <label for="pgvg">PG</label>
-            <input type="range" name="pgvg"
-                        min="{{ site.data.mixflavour.min-vg }}"
-                        value="{{ site.data.mixflavour.recommended-pgvg-ratio }}"
-                        max="{{ 100 | minus: site.data.mixflavour.min-pg }}" step="1">
+            <input type="range" name="pgvg" id="pgvgslider"
+                data-vg-min-recommended="{{ site.data.mixflavour.recommended-min-vg }}"
+                data-pg-min-recommended="{{ site.data.mixflavour.recommended-min-pg }}"
+                min="{{ site.data.mixflavour.min-vg }}"
+                value="{{ site.data.mixflavour.recommended-pgvg-ratio }}"
+                max="{{ 100 | minus: site.data.mixflavour.min-pg }}" step="1">
             <label for="pgvg">VG</label>
         </div>
     </div>

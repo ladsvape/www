@@ -49,8 +49,9 @@ function initSnipCart () {
         a.id = 'jquery'
         a.src = '/js/jquery.min.js'
         a.onload = function () {
-            window.jQuery = window.jQuery.noConflict()
-            window.$ = window.jQuery
+            window.jQuery.readyException = function (error) {
+                console.error(error)
+            }
             if (!window.Snipcart) {
                 var a = document.createElement('script')
                 a.async = 1

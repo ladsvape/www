@@ -1,6 +1,7 @@
 disallow-nicotine: true
 min-vg: 20
 min-pg: 20
+recommended-pgvg-ratio: 30
 recommended-min-vg: 40
 recommended-min-pg: 40
 flavours:

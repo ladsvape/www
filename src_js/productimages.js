@@ -15,7 +15,7 @@ function mouseMove (e) {
 }
 
 function initProductImages () {
-    var elems = document.querySelectorAll('a.styles')
+    var elems = document.querySelectorAll('#newpage a.styles')
     if (!elems) return
     elems.forEach(elem => {
         var elBottle = elem.querySelector('.bottle')

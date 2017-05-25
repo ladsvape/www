@@ -9,7 +9,7 @@ function findGetParameter (parameterName) {
 }
 
 function initTrackOrder () {
-    var element = document.getElementById('trackorder')
+    var element = document.querySelector('#newpage #trackorder')
     if (!element) return
 
     var input = element.querySelector('input[name="tracking"]')

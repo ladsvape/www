@@ -2,7 +2,10 @@ import {gmapsKey, mapPoint} from './authkeys'
 
 /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "[iI]gnored" }] */
 
-function initMap (domEl) {
+function initMap () {
+    var domEl = document.getElementById('map')
+    if (!domEl) return
+    // Load script or load map directly if script is already loaded
     if (document.getElementById('mapscript')) return loadMap(domEl)
     var s = document.createElement('script')
     s.crossorigin = 'anonymous'

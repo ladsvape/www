@@ -124,7 +124,7 @@ function addFlavour (e) {
     updateChart()
 }
 
-function initChart () {
+function initMixYourOwn () {
     // Check if we are on the mix your own flavour page
     var selectflavour = document.getElementById('selectflavour')
     if (!selectflavour) return
@@ -158,4 +158,4 @@ function initChart () {
     btnAddflavour.onclick = addFlavour
 }
 
-export {initChart}
+export {initMixYourOwn}

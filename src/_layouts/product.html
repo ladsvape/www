@@ -3,59 +3,59 @@ layout: default
 ---
 <div>
 <div class="container">
-	<div class="product-container">
-		{% include product-image.html product=page type='dest' %}
-		<div class="product-details" id="add">
-			<h3>{{ page.name }} - ${{ page.price }}</h3>
-			{{ page.description_markdown | markdownify }}
+<div class="product-container">
+	{% include product-image.html product=page type='dest' %}
+	<div class="product-details" id="add">
+		<h3>{{ page.name }} - ${{ page.price }}</h3>
+		{{ page.description_markdown | markdownify }}
 
-			<label style="max-width: 200px" class="input-label">
-				<span>Size</span>
-				<select data-for="{{ page.sku }}" data-option="1" name="size">
-					{% for size in page.sizes %}
-						{% assign str = size | split: '[' %}
-						{% assign value = str[0] %}
-						<option value="{{ value }}" {% if value == page.defaultsize %}selected{% endif %}>{{ size }}</option>
-					{% endfor %}
-				</select>
-			</label>
-
-			<br>
-
-			<label style="max-width: 200px" class="input-label">
-				<span>Quantity</span>
-				<select data-for="{{ page.sku }}" name="quantity">
-					{% for q in (1..page.maxquantity) %}
-						<option {% if q == 1 %}selected{% endif %}>{{ q }}</option>
-					{% endfor %}
-				</select>
-			</label>
-			</div>
-
-			<br>
-
-			<div class="button">
-				{% assign colors = "" %}
-				{% for style in page.styles %}
-					{% assign colors = colors | append: '|' | append: style.name %}
+		<label style="max-width: 200px" class="input-label">
+			<span>Size</span>
+			<select data-for="{{ page.sku }}" data-option="1" name="size">
+				{% for size in page.sizes %}
+					{% assign str = size | split: '[' %}
+					{% assign value = str[0] %}
+					<option value="{{ value }}" {% if value == page.defaultsize %}selected{% endif %}>{{ size }}</option>
 				{% endfor %}
-				{% assign colors = colors | remove_first: '|' %}
-				<button class="snipcart-add-item"
-					data-item-name="{{ page.name }}"
-					data-item-id="{{ page.sku }}"
-					data-item-image="{{ page.styles.first.image }}"
-					data-item-description="{{ page.description }}"
-					data-item-custom1-name="Size"
-					data-item-custom1-options="{{ page.sizes | join: '|' }}"
-					data-item-custom1-value="{{ page.defaultsize }}"
-					data-item-url="{{ page.url }}"
-					data-item-price="{{ page.price }}">
-					Add to cart
-				</button>
-			</div>
+			</select>
+		</label>
 
+		<br>
+
+		<label style="max-width: 200px" class="input-label">
+			<span>Quantity</span>
+			<select data-for="{{ page.sku }}" name="quantity">
+				{% for q in (1..page.maxquantity) %}
+					<option {% if q == 1 %}selected{% endif %}>{{ q }}</option>
+				{% endfor %}
+			</select>
+		</label>
+
+		<br>
+
+		<div class="button">
+			{% assign colors = "" %}
+			{% for style in page.styles %}
+				{% assign colors = colors | append: '|' | append: style.name %}
+			{% endfor %}
+			{% assign colors = colors | remove_first: '|' %}
+			<button class="snipcart-add-item"
+				data-item-name="{{ page.name }}"
+				data-item-id="{{ page.sku }}"
+				data-item-image="{{ page.styles.first.image }}"
+				data-item-description="{{ page.description }}"
+				data-item-custom1-name="Size"
+				data-item-custom1-options="{{ page.sizes | join: '|' }}"
+				data-item-custom1-value="{{ page.defaultsize }}"
+				data-item-url="{{ page.url }}"
+				data-item-price="{{ page.price }}">
+				Add to cart
+			</button>
 		</div>
-	</div>
-	<div id="disqus_thread"></div>
-</div>
+
+		<div id="disqus_thread"></div>
+
+	</div><!--product details-->
+</div><!--product-container-->
+</div><!--container-->
 </div>

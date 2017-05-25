@@ -2,12 +2,12 @@
 
 import {initMap} from './maps'
 import {googleAnalyticsKey} from './authkeys'
-import {initSmoke} from './smoke'
+// import {initSmoke} from './smoke'
 import {initPageTransition} from './pagetransition'
 import {initProductImages, uninitProductImages} from './productimages'
 import {initFixedNavigation} from './fixednavigation'
 import {initTrackOrder} from './trackorder'
-import {initChart} from './mixyourown'
+import {initMixYourOwn} from './mixyourown'
 import {initSnipCart} from './shoppingcart'
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,18 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
     initProductImages()
     initFixedNavigation()
     initPageTransition(pageEnter, pageLeave)
-    initSmoke()
+    // initSmoke()
     init18plusMessage()
 
+    // The "pagetransition.js" triggers a 'pageloaded' event when the face-in animation is completed
     document.body.addEventListener('pageloaded', () => {
         if (window.ga) window.ga('send', 'pageview')
-        var mapElement = document.getElementById('map')
-        if (mapElement) initMap(mapElement)
-
-        initDisquis()
-        initChart()
-        initTrackOrder()
-        initProductOptions()
     })
 
     if (!window.usedTransition) document.body.dispatchEvent(new Event('pageloaded'))
@@ -59,6 +53,11 @@ function pageEnter (newContentEl) {
     }
 
     initProductImages()
+    initMap()
+    initDisquis()
+    initMixYourOwn()
+    initTrackOrder()
+    initProductOptions()
 }
 
 function pageLeave () {

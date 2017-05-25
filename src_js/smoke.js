@@ -146,12 +146,12 @@ function initSmoke () {
         // })
 
         // Steady smoke at the bottom middle of the screen
-        setInterval(() => {
-            party.addsmoke(window.innerWidth / 2 - 300,
-                200, 1, Math.floor(Math.random() * 200) + 3800)
-            party.addsmoke(window.innerWidth / 2 + 300,
-                200, 1, Math.floor(Math.random() * 200) + 3800)
-        }, 100)
+        // setInterval(() => {
+        //     party.addsmoke(window.innerWidth / 2 - 300,
+        //         200, 1, Math.floor(Math.random() * 200) + 3800)
+        //     party.addsmoke(window.innerWidth / 2 + 300,
+        //         200, 1, Math.floor(Math.random() * 200) + 3800)
+        // }, 100)
     } catch (e) { console.error('smoke failed', e) }
 }
 

@@ -98,14 +98,14 @@ hero: Create your own flavour
         <strong><span class="toolesspg">PG is very thin in comparison to VG</span> thus we recommend a ratio of 30% PG to 70% VG.</strong>
         <br><br>
         <div class="left-right-range">
-            <label for="pgvg">PG</label>
+            <label for="pgvgslider">PG</label>
             <input type="range" name="pgvg" id="pgvgslider"
                 data-vg-min-recommended="{{ site.data.mixflavour.recommended-min-vg }}"
                 data-pg-min-recommended="{{ site.data.mixflavour.recommended-min-pg }}"
                 min="{{ site.data.mixflavour.min-vg }}"
                 value="{{ site.data.mixflavour.recommended-pgvg-ratio }}"
                 max="{{ 100 | minus: site.data.mixflavour.min-pg }}" step="1">
-            <label for="pgvg">VG</label>
+            <label for="pgvgslider">VG</label>
         </div>
     </div>
 

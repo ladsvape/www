@@ -1,5 +1,11 @@
+/*
+ * This module is for animating / fading the shoping card overlay
+ * and for showing / hiding the loading spinner
+ */
 import {snipcartKey} from './authkeys'
 
+// Restyle the close button, which is usually just a cross (X)
+// and make it a real button with the title "Close cart"
 function adjustCloseBtn (elem) {
     if (elem) {
         elem.classList.remove('snip-layout__close')
@@ -51,6 +57,14 @@ function initSnipCart () {
         a.onload = function () {
             window.jQuery.readyException = function (error) {
                 console.error(error)
+                var cardBtns = document.querySelectorAll('a.cart.snipcart-checkout')
+                if (cardBtns) {
+                    for (var cardBtn of cardBtns) {
+                        cardBtn.textContent = 'Offline - No cart'
+                        cardBtn.dataset.loading = 'false'
+                        cardBtn.style.pointerEvents = 'none'
+                    }
+                }
             }
             if (!window.Snipcart) {
                 var a = document.createElement('script')

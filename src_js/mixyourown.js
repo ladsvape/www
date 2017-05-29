@@ -136,7 +136,7 @@ function initMixYourOwn () {
     if (!btnAddflavour || !flavoursContainer) return
 
     var pgvgslider = document.getElementById('pgvgslider')
-    pgvgslider.onchange = function () {
+    pgvgslider.oninput = function () {
         const vgmin = this.dataset.vgMinRecommended
         const pgmin = this.dataset.pgMinRecommended
         const v = this.value

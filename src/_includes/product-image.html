@@ -1,4 +1,5 @@
 <a class="styles" href="{{ include.product.url }}"
+	title="{{ include.product.name }} for ${{ include.product.price }}"
 	id="{{ include.product.url | slugify }}"
 	data-transitiontype="{{ include.type }}"
 	data-transitionid="{{ include.product.url | slugify }}">
@@ -15,7 +16,7 @@
 	</div>
 
 	{% if include.product.imagefg %}
-	<img alt="" class="fg" src="{{ include.product.imagefg }}">
+	<img role="presentation" alt="Decorative element on top of the product picture" class="fg" src="{{ include.product.imagefg }}">
 	{% endif %}
 
 	<div class="bg" style="background-image:url({{ bgimage }})">

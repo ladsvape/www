@@ -1,3 +1,4 @@
+
 .styles {
 	height: 100%;
 	position: relative;
@@ -18,6 +19,7 @@
 		// background: rgba(255,255,255,0.4);
 		filter: blur(5px);
 		height: 60px;
+		// This is a hack, because backdrop-filter is not yet supported by all browsers
     	background-position-y: -415px; // .bg height minus .infobg height
 		pointer-events: none;
 	}
@@ -51,7 +53,7 @@
 
 	.bg {
 		background: $header-bg;
-		width: 400px;
+		width: $product-image-width;
 		height: 475px;
 		max-width: 100%;
 		display: flex;
@@ -128,6 +130,33 @@
 		&:hover {
 			background: #f5f5f5;
 			color: #000;
+		}
+	}
+}
+
+/* If the screen size goes below the normal product picture size,
+   we enable the scrollbar and change some product image details */
+@media #{$below-product-image-width} {
+	html { overflow-x: auto; }
+	.product-list {
+		li {
+			// Instead of a fixed 400px width, we just make the picture
+			// as big as the available space left.
+			width: 100%;
+
+			a {
+				// See comment above
+				width: 100%;
+			}
+		}
+		// Set a minimal width, scrollbars will be visible if smaller.
+		.styles .bg {
+			width: initial;
+			min-width: 250px;
+		}
+		// Hide the foreground image
+		.styles .fg {
+			display: none;
 		}
 	}
 }

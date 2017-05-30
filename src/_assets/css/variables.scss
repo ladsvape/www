@@ -9,9 +9,12 @@ $text-on-brand-color: black;
 $text-on-brand-color-active: #827717;
 $text-on-brand-color-hover: #c0ca33;
 
+$product-image-width: 400px;
+
 // Breakpoints
 $tablet: "(min-width: 450px)";
 $above-tablet: "(min-width: 550px)";
 $mid-point: "(min-width: 650px)";
 $below-mid-point: "(max-width: 849px)";
+$below-product-image-width: "(max-width: 410px)";
 $desktop: "(min-width: 768px)";

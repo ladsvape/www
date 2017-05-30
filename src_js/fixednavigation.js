@@ -1,9 +1,4 @@
 function initFixedNavigation () {
-    document.getElementById('open-nav').onclick = function () {
-        document.body.classList.toggle('nav-open')
-        return false
-    }
-
     let elem = document.getElementById('mainnav')
     let headerEl = document.querySelector('header')
     const navY = headerEl.getBoundingClientRect().height - elem.getBoundingClientRect().height

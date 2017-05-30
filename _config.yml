@@ -2,7 +2,7 @@
 # Site
 
 title: Lads Vape Liquids
-url: "https://www.ladsvape.nz/"
+url: https://www.ladsvape.nz
 baseurl:
 cacheversion: v1
 
@@ -20,6 +20,16 @@ social:
   links:
     - https://facebook.com/ladsvape
 
+# TODO fill details in here for better search engine indexing
+#facebook:
+# app_id: 1234
+# publisher: 1234
+#webmaster_verifications:
+#  google: 1234
+#  bing: 1234
+#  alexa: 1234
+#  yandex: 1234
+
 # -----
 # Build
 
@@ -34,6 +44,11 @@ jekyll-archives:
   enabled:
     - categories
 
+# Add include directory
+includes:
+- _assets/css
+
+# Compress html
 # http://jch.penibelst.de/
 compress_html:
   clippings: all
@@ -45,14 +60,18 @@ compress_html:
   profile: false
   startings: []
 
+# Compress styles (for inlining)
+scss:
+  style: compressed
+
+# Compress styles and selected javascript files
 assets:
   compress:
     css: true
-    js: false
+    js: true
   cache: .asset-cache
   prefix: "/assets"
   assets:
-    - "*.png"
     - "screen.css"
     - "sw.js"
   digest: false

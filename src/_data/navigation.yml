@@ -2,15 +2,19 @@
   link: /
   new_window: false
   highlight: false
+  accesskey: p
 - name: Our Story
   link: /about/
   new_window: false
   highlight: false
+  accesskey: o
 - name: Contact
   link: /contact/
   new_window: false
   highlight: false
+  accesskey: c
 - name: Your flavour
   link: /your-flavour/
   new_window: false
   highlight: false
+  accesskey: y

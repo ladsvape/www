@@ -9,12 +9,12 @@ layout: compress
 {% else %}
 	{% assign hero = page.name %}
 {% endif %}
+
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' https://* 'unsafe-inline' data:; script-src 'self' 'unsafe-eval' 'unsafe-inline' data: https://disqus.com https://*.disqus.com https://*.disquscdn.com https://*.snipcart.com https://*.google-analytics.com https://maps.googleapis.com https://csi.gstatic.com; child-src *" />
-	{% css main %}
 	<link rel="manifest" href="/manifest.json">
 	<link rel="icon" type="image/png" href="{{ "images/favicon.png" | relative_url }}">
 	<link rel="prefetch" href="{% link about.html %}">
@@ -25,7 +25,12 @@ layout: compress
 	<link rel="dns-prefetch" href="https://api.google-analytics.com">
 	<link rel="dns-prefetch" href="https://maps.googleapis.com">
 	{% seo %}
-
+	<style type="text/css">
+		{% capture include_to_scssify %}
+		{% include critical.scss %}
+		{% endcapture %}
+		{{ include_to_scssify | scssify }}
+	</style>
 	<script defer type="text/javascript" src="{{ "/js/bundle.js" | relative_url }}" charset="utf-8"></script>
 </head>
 <body>
@@ -77,18 +82,7 @@ layout: compress
 	</main>
 
 	{% include newsletter.html %}
-
-	<div id="plus18" class="dialog-bg">
-		<div class="dialog-content">
-			<h2 style="width: 100%;text-align:center;">Are you 18+?</h2>
-			<p>We are legally not allowed to sell vape liquids to anyone under the age of 18. Please confirm that
-				you are 18+.</p>
-			<div style="width: 100%;text-align:center;padding-top:20px;padding-bottom:20px;">
-			<a class="btn" href="https://www.google.com/search?q=What&nbsp;can&nbsp;I&nbsp;do&nbsp;when&nbsp;i&nbsp;am&nbsp;underage">Under 18</a>
-			<a class="btn confirm18plus" href="#">Confirm</a>
-			</div>
-		</div>
-	</div>
+	{% include plus18.html %}
 
 	<footer><div class="container">
 		<div class="footer-columns">
@@ -124,5 +118,6 @@ layout: compress
 		</div>
 		<p class="copyright">© {{ site.time | date: '%Y' }} {{ site.title }}</p>
 	</div></footer>
+	{% css main %}
 </body>
 </html>

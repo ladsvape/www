@@ -18,13 +18,14 @@ body {
 }
 
 a {
-	color: $brand-color;
+	color: $text-on-brand-color;
 	text-decoration: none;
 	cursor: pointer;
 }
 
 a:hover {
 	text-decoration: underline;
+	color: $text-on-brand-color-hover
 }
 
 h1 strong, h2 strong {
@@ -53,8 +54,32 @@ h4 {
 }
 
 p, address, label, ul, ol {
-	// font-size: 1.38rem;
 	margin-bottom: 20px;
-	// font-weight: 300;
-	// line-height: 1.4em;
+}
+
+
+main {
+	padding: 20px;
+	flex: 1 0 auto;
+}
+
+.text-container {
+	max-width: 750px;
+	margin: auto;
+}
+
+.container {
+	max-width: 1140px;
+	margin: auto;
+
+	&.max-container {
+		max-width: 100%;
+		padding: 0;
+	}
+}
+
+.tile {
+	background-color: $header-bg;
+	border: 1px solid rgba(0, 0, 0, 0.17);
+	padding: 10px;
 }

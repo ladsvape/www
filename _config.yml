@@ -44,10 +44,6 @@ jekyll-archives:
   enabled:
     - categories
 
-# Add include directory
-includes:
-- _assets/css
-
 # Compress html
 # http://jch.penibelst.de/
 compress_html:
@@ -61,8 +57,9 @@ compress_html:
   startings: []
 
 # Compress styles (for inlining)
-scss:
+sass:
   style: compressed
+  sass_dir: ./_assets/css
 
 # Compress styles and selected javascript files
 assets:

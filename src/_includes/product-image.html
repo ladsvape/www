@@ -15,12 +15,12 @@
 	</div>
 
 	{% if include.product.imagefg %}
-	<img class="fg" src="{{ include.product.imagefg }}">
+	<img alt="" class="fg" src="{{ include.product.imagefg }}">
 	{% endif %}
 
 	<div class="bg" style="background-image:url({{ bgimage }})">
 		{% if include.product.imagebg %}
-		<img class="bottle"
+		<img alt="The product image of {{ include.product.name }} for ${{ include.product.price }}" class="bottle"
 			{% if include.product.imagecolor %}
 			style="filter: drop-shadow(4px 4px 10px {{include.product.imagecolor}})"
 			{% endif %}

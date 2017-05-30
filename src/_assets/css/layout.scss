@@ -7,32 +7,6 @@
 	overflow: hidden;
 }
 
-main {
-	padding: 20px;
-	flex: 1 0 auto;
-}
-
-.text-container {
-	max-width: 750px;
-	margin: auto;
-}
-
-.container {
-	max-width: 1140px;
-	margin: auto;
-
-	&.max-container {
-		max-width: 100%;
-		padding: 0;
-	}
-}
-
-.tile {
-	background-color: $header-bg;
-	border: 1px solid rgba(0, 0, 0, 0.17);
-	padding: 10px;
-}
-
 .subtext {
 	margin-top: 10px;
 	text-align: center;

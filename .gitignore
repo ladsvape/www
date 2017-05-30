@@ -3,3 +3,5 @@ _site/
 node_modules
 src/js/bundle.js
 src/.asset-cache
+.asset-cache
+npm-debug.loh

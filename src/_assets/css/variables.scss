@@ -5,7 +5,7 @@ $header-bg-more: rgba(220, 231, 117, 0.6);
 $header-bg-full: rgba(220, 231, 117, 0.9);
 $brand-color: #dce775;
 $default-hero-image: "/images/hero/box-top.jpg";
-$text-on-brand-color: black;
+$text-on-brand-color: darken($brand-color, 20%);
 $text-on-brand-color-active: #827717;
 $text-on-brand-color-hover: #c0ca33;
 

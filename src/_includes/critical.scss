@@ -1,6 +1,9 @@
-@import "variables";
-@import "navigation";
-@import "elements";
 .dialog-bg {
     opacity: 0
 }
+.material-icons {
+    display: none;
+}
+@import "variables";
+@import "navigation";
+@import "elements";

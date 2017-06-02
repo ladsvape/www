@@ -59,32 +59,11 @@ compress_html:
 # Compress styles (for inlining)
 sass:
   style: compressed
-  sass_dir: ./_assets/css
-
-# Compress styles and selected javascript files
-assets:
-  compress:
-    css: true
-    js: true
-  cache: .asset-cache
-  prefix: "/assets"
-  assets:
-    - "screen.css"
-    - "sw.js"
-  digest: false
-  sources:
-    - _assets/css
-    - _assets/images
-    - _assets/javascripts
-    - _assets/stylesheets
-    - _assets/fonts
-    - _assets/img
-    - _assets/js
+  sass_dir: ./_sass/
 
 gems:
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jekyll-assets
 
 exclude:
   - Gemfile

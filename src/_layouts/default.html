@@ -16,7 +16,7 @@ layout: compress
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' https://* 'unsafe-inline' data:; script-src 'self' 'unsafe-eval' 'unsafe-inline' data: https://disqus.com https://*.disqus.com https://*.disquscdn.com https://*.snipcart.com https://*.google-analytics.com https://maps.googleapis.com https://csi.gstatic.com; child-src *" />
 	<link rel="manifest" href="/manifest.json">
-	<link rel="icon" type="image/png" href="{{ "images/favicon.png" | relative_url }}">
+	<link rel="icon" type="image/png" href="{{ "/images/favicon.png" | relative_url }}">
 	<link rel="prefetch" href="{% link about.html %}">
 	<link rel="prefetch" href="{% link contact.html %}">
 	<link rel="dns-prefetch" href="https://disqus.com">
@@ -119,6 +119,6 @@ layout: compress
 		</div>
 		<p class="copyright">© {{ site.time | date: '%Y' }} {{ site.title }}</p>
 	</div></footer>
-	{% css main %}
+	<link rel="stylesheet" href="{{ "/css/main.css" | relative_url }}"/>
 </body>
 </html>

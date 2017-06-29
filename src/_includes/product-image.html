@@ -1,4 +1,5 @@
 <a class="styles" href="{{ include.product.url }}"
+	title="{{ include.product.name }} for ${{ include.product.price }}"
 	id="{{ include.product.url | slugify }}"
 	data-transitiontype="{{ include.type }}"
 	data-transitionid="{{ include.product.url | slugify }}">
@@ -15,12 +16,12 @@
 	</div>
 
 	{% if include.product.imagefg %}
-	<img class="fg" src="{{ include.product.imagefg }}">
+	<img role="presentation" alt="Decorative element on top of the product picture" class="fg" src="{{ include.product.imagefg }}">
 	{% endif %}
 
 	<div class="bg" style="background-image:url({{ bgimage }})">
 		{% if include.product.imagebg %}
-		<img class="bottle"
+		<img alt="The product image of {{ include.product.name }} for ${{ include.product.price }}" class="bottle"
 			{% if include.product.imagecolor %}
 			style="filter: drop-shadow(4px 4px 10px {{include.product.imagecolor}})"
 			{% endif %}

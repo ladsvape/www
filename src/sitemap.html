@@ -1,0 +1,15 @@
+---
+layout: textpage
+sitemap: false
+title: Sitemap
+hero: Sitemap
+---
+{% for page in site.pages %}
+    {% unless page.sitemap == false %}
+    {% unless page.name == "sitemap.xml" %}
+    <ul>
+      <a href="{{ page.url | remove: "index.html" }}">{{ page.title }}</loc>
+    </ul>
+    {% endunless %}
+    {% endunless %}
+{% endfor %}

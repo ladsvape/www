@@ -6,6 +6,8 @@
       link: /about/
     - name: Contact
       link: /contact/
+    - name: Sitemap
+      link: /sitemap/
 - title: Help
   links:
     - name: Shipping

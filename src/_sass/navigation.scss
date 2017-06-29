@@ -1,0 +1,182 @@
+header {
+	color: $text-on-brand-color;
+	background-color: $header-bg;
+	box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.17);
+	padding-left: 10px;
+    padding-right: 10px;
+
+	.company-name {
+		position: absolute;
+		top: 0px;
+		a {
+			display: block;
+		}
+
+		img {
+			max-width: 200px;
+		}
+	}
+}
+
+
+.hero {
+	color: #ffffff;
+	text-align: center;
+	padding: 20px;
+
+	h2 {
+		text-shadow: 0 1px 3px #000;
+		font-size: 3.2rem;
+		line-height: 1.5;
+		margin: 0;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis; 
+	}
+
+	@media #{$below-mid-point} {
+		h2 {
+			font-size: 1.5em;
+			line-height: initial;
+			font-weight: initial;
+		}
+	}
+
+	@media #{$mid-point} {
+		h2 {
+			font-size: 4rem;
+		}
+	}
+}
+
+.navbar-fixed {
+    top: 0;
+    z-index: 100;
+  	position: fixed;
+	box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.17);
+	padding-left: 10px;
+	padding-right: 10px;
+	left: 0px;
+	right: 0px;
+	background-color: $header-bg-more;
+	transition: background-color linear 0.3s;
+}
+
+.navbar-fixed:hover  {
+	background-color: $header-bg-full;
+}
+
+a.nav-toggle {
+	display: block;
+	position: absolute;
+	font-size: 1.9em;
+	border: 0;
+	z-index: 10;
+	right: 10px;
+	top: 10px;
+	display: none;
+
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+	/*
+	#mainnav:target {
+		a.nav-toggle.close-menu {
+			display: block;
+		}
+		a.nav-toggle.open-menu {
+			display: none;
+		}
+
+		nav {
+			z-index: 2;
+
+			a {
+				display: inline-block;
+				margin-bottom: 10px;
+				margin-left: 10px;
+			}
+		}
+	}
+	:not(#mainnav:target) {
+		a.nav-toggle.close-menu {
+			display: none;
+		}
+		a.nav-toggle.open-menu {
+			display: block;
+		}
+	}
+	*/
+
+nav {
+	text-transform: uppercase;
+	width: 100%;
+
+	a {
+		margin: auto;
+		border-bottom: 1px solid rgba(255,255,255,0);
+		color: $text-on-brand-color;
+		border-bottom: 3px solid transparent;
+		transition: 200ms all;
+		display: none;
+		text-decoration: none;
+
+		i {
+			vertical-align: bottom;
+		}
+	}
+
+	a:hover {
+		border-bottom: 3px solid $text-on-brand-color-hover;
+		text-decoration: none;
+		// padding-bottom: 5px;
+	}
+
+	a.active {
+		border-bottom: 3px solid $text-on-brand-color-active;
+		color: $text-on-brand-color-active;
+		// padding-bottom: 5px;
+	}
+
+	@media #{$mid-point} {
+		display: inline-block;
+		vertical-align: top;
+		display: flex;
+		flex-wrap: nowrap;
+		flex-flow: row;
+		align-items: flex-end;
+
+		a {
+			display: inline-block;
+			padding: 10px;
+			margin-right: 10px;
+			flex: 0 0 auto;
+			height: 100%;
+		}
+
+		a.cart {
+			margin-right: 0px;
+			background: rgba(255,255,255,1);
+			align-self: flex-end;
+		}
+	}
+
+}
+
+@media #{$below-mid-point} {
+	nav {
+		z-index: 2;
+
+		a {
+			display: inline-block;
+			margin-bottom: 10px;
+			margin-left: 10px;
+		}
+	}
+
+	.navbar-fixed {
+		display: none;
+	}
+}

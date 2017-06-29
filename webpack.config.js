@@ -11,13 +11,17 @@ module.exports = {
         filename: 'bundle.js'
     },
     plugins: [
-      new BabiliPlugin({}, {
-            test: /src_js\/\.(js)$/,
+      new BabiliPlugin({"presets": [["babili", {}]]}, {
             comments: false
       })
     ],
     module: {
         loaders: [
+            {
+                test: /\.(eof|woff|woff2|ttf|svg)$/,
+                include: [path.resolve(__dirname, 'node_modules/material-design-icons-iconfont/dist')],
+                loader: 'file?name=fonts/[name].[ext]'
+            },
             {
                 test: /src_js\/\.(js)$/,
                 exclude: /(node_modules)/,

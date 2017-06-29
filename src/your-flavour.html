@@ -4,17 +4,129 @@ title: Your flavour
 hero: Create your own flavour
 ---
 <p>
-    Our experts tries hard to provide you with our range of awesome ready-to-use and thoroughly tastes tested 
-    juices for the best experience. But we don't want to be in the way of creative minds, so we are doing what no other is doing!
+    Our experts try hard to provide you with our range of awesome ready-to-use and thoroughly taste tested 
+    juices for the best experience. But we don't want to be in the way of creative minds,
+    so we are doing what no other is doing!
     We are offering you to make the juices!
 </p>
 <p>
     Choose from a variety of different flavours, mix and match them together and create
-    your very own "unique"" taste. Our experts will proof-test your recipe and send the final
-    master piece in the desired quantity right to you, hassle free.
+    your very own <i>unique</i> taste. Our experts will proof-test your recipe and send the final
+    master piece in the desired quantity right to you,
+    <span data-tooltip="*Almost hassle free at least; Please allow the components to settle for at least a week.">hassle free</span>*.
 </p>
-<small>*Almost hassle free at least; Please allow the components to settle for at least a weeks.</small>
 
-<div class="tile" style="background-color: rgb(255, 128, 128);margin-top:20px;">
-    We are working on this :)
-</div>
+
+<form action="https://formspree.io/ladsvape@gmail.com"
+      method="post" class="contact-form" id="own-flavour-form">
+
+    <h4>Your details</h4>
+    <div class="tile">
+    <label for="name">Full Name</label>
+    <input type="text" name="name" id="name" placeholder="Enter your name..." autofocus>
+
+    <label for="email">Email Address</label>
+    <input type="email" name="_replyto" id="_replyto" placeholder="Enter your email..." required inputmode="email">
+    </div>
+
+    <h4>Strength of flavours</h4>
+    <div class="twoflex">
+        <div class="tile select-flavours-tile">
+            <div class="twogrid">
+                <select name="ignore" id="selectflavour" style="margin-right:10px">
+                {% for flavour in site.data.mixflavour.flavours %}
+                <option name="{{ flavour.name }}"
+                    data-flavourid="{{ flavour.id }}"
+                    data-flavourname="{{ flavour.name }}"
+                    data-flavourcolor="{{ flavour.color }}"
+                    data-min="{{ flavour.min }}" data-value="{{ flavour.default }}"
+                    data-max="{{ flavour.max }}"
+                    style="background:{{ flavour.color }};border: 1px solid transparent;">
+                    {{ flavour.name }}
+                </option>
+                {% endfor %}
+                </select>
+                <button class="btn small" id="addflavour">Add flavour</button>
+            </div>
+            <hr>
+            <!-- this template is not added to the page directly, but cloned via javascript and -->
+            <!-- added to #addedflavours. -->
+            <template id="flavourrow">
+                <span data-flavourrow="flavourname">
+                    <span class="name"></span>
+                    (<span class="percentage">0</span>%)
+                </span>
+                <input data-flavourrow="flavourname" type="range"
+                    name="flavourname" step="1" min="0" max="100" value="0" style="border: 1px solid transparent;">
+                <a data-flavourrow="flavourname" data-tooltip="Remove flavour" href="#"><i class="material-icons">close</i></a>
+            </template>
+            <div class="threegrid" id="addedflavours"></div>
+        </div>
+        <div class="tile">
+            <!-- The template svg with the waveshape and a solid rectangle. The fill color is replaced dynamically -->
+            <svg style="display:none;" id="waveshape">
+                <path style="fill:#04ACFF" d="M 113.09961 0 C 98.099609 0 72.300781 2.4003906 72.300781 2.4003906 C 60.000781 3.5003906 41.900781 4.2007813 40.300781 4.3007812 C 38.300781 4.2007813 20.299609 3.5003906 8.0996094 2.4003906 C 8.0996094 2.4003906 5 2.0992188 0 1.6992188 L 0 300 L 298.90039 300 L 298.90039 300.69922 L 598.90039 300.69922 L 598.90039 3.1992188 C 598.90039 3.1992188 598.30078 3.0996094 597.80078 3.0996094 C 597.80078 3.0996094 572.30078 0.79921875 557.30078 0.69921875 C 542.30078 0.69921875 516.69922 3.0996094 516.69922 3.0996094 C 504.39922 4.1996094 486.40078 4.9 484.80078 5 C 482.80078 4.9 465.10078 4.1996094 452.80078 3.0996094 C 452.80078 3.0996094 427 0.79921875 412 0.69921875 C 397 0.69921875 371.19922 3.0996094 371.19922 3.0996094 C 358.89922 4.1996094 340.79922 4.9 339.19922 5 C 337.19922 4.9 319.2 4.1996094 307 3.0996094 C 307 3.0996094 303.85576 2.8137218 299.91211 2.4882812 C 299.79359 2.4695989 299.33996 2.4003906 298.90039 2.4003906 C 298.90039 2.4003906 273.40039 0.1 258.40039 0 C 243.40039 0 217.80078 2.4003906 217.80078 2.4003906 C 205.50078 3.5003906 187.50039 4.2007813 185.90039 4.3007812 C 183.90039 4.2007813 166.20039 3.5003906 153.90039 2.4003906 C 153.90039 2.4003906 128.09961 0.1 113.09961 0 z "/>
+                <rect width="100%" height="100%" y="300" style="fill:#04ACFF" />
+            </svg>
+            <!-- the template svg for the clipping, the contained polygon has the shape of a bottle -->
+            <svg width="0" height="0">
+            <clipPath id="clipPolygon">
+                <polygon points="32 141,12 154,3 176,10 480,23 502,74 519,126 520,166 508,188 491,197 475,196 182,187 159,168 144,150 138,46 138">
+                </polygon>
+            </clipPath>
+            </svg>
+            <!-- The bottle  -->
+            <div class="flavour-bottle">
+                <div class="flavour-bottle-overlay"></div>
+                <div class="flavour-bottle-clip">
+                    <div id="flavourcanvas"></div>
+                    <span id="noflavours">There are currently no flavours in your mixture</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h4>Propylene glycol / Vegetable glycerine</h4>
+    <div class="tile">
+        <ul>
+        <li>Vegetable glycerine (VG) is what gives cloud in vaping, the more VG the thicker the cloud.
+        <li>Propylene glycol (PG) creates the throat hit which gives the sensation from smoking.
+            The more PG the stronger the hit.
+        </ul>
+        <span class="toolessvg">PG should not be vaped without at least a concentration of 40% VG</span>,
+            other which <span class="toolessvg">the hit would be far too strong</span>.
+        <strong><span class="toolesspg">PG is very thin in comparison to VG</span> thus we recommend a ratio of 30% PG to 70% VG.</strong>
+        <br><br>
+        <div class="left-right-range">
+            <label for="pgvgslider">PG</label>
+            <input type="range" name="pgvg" id="pgvgslider"
+                data-vg-min-recommended="{{ site.data.mixflavour.recommended-min-vg }}"
+                data-pg-min-recommended="{{ site.data.mixflavour.recommended-min-pg }}"
+                min="{{ site.data.mixflavour.min-vg }}"
+                value="{{ site.data.mixflavour.recommended-pgvg-ratio }}"
+                max="{{ 100 | minus: site.data.mixflavour.min-pg }}" step="1">
+            <label for="pgvgslider">VG</label>
+        </div>
+    </div>
+
+    <h4>Nicotine</h4>
+    <div class="tile">
+        <input id="nicotine" name="with-nicotine" type="checkbox"
+            {% if site.data.mixflavour.disallow-nicotine %} disabled {% endif %} />
+        <label class="inline" for="nicotine">Nicotine (4mg)*</label>
+        {% if site.data.mixflavour.disallow-nicotine %}
+        <!-- only show this part if nicotine is disallowed -->
+        <br><br>
+        *Unfortunately we are not allowed to sell products which contain nicotine in New Zealand.
+        Please have a look at <a href="/nicotine/">this page</a> though.
+         {% endif %}
+    </div>
+
+    <h4>Comments</h4>
+    <div class="tile">
+        <textarea name="message" id="message" placeholder="Enter a comment if you like..."></textarea>
+    </div>
+
+    <div id="no-flavour-selected-warning" class="highlight" style="margin-top:20px;display:none">You need to add at least one flavour. We are pretty sure that vape liquids taste aweful without a taste!</div>
+    <input type="submit" value="Send flavour suggestion">
+</form>

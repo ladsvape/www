@@ -2,9 +2,13 @@ import {gmapsKey, mapPoint} from './authkeys'
 
 /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "[iI]gnored" }] */
 
-function initMap (domEl) {
+function initMap () {
+    var domEl = document.querySelector('#newpage #map')
+    if (!domEl) return
+    // Load script or load map directly if script is already loaded
     if (document.getElementById('mapscript')) return loadMap(domEl)
     var s = document.createElement('script')
+    s.crossorigin = 'anonymous'
     s.id = 'mapscript'
     s.src = 'https://maps.googleapis.com/maps/api/js?key=' + gmapsKey
     s.onload = () => loadMap(domEl)

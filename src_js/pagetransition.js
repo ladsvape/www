@@ -95,6 +95,7 @@ var FadeTransition = Barba.BaseTransition.extend({
     /* this.oldContainer is the HTMLElement of the old Container */
     fadeOut: function () {
         var timeout = new Promise((resolve, reject) => setTimeout(resolve, 500))
+        this.oldContainer.id = 'oldpage'
         this.oldContainer.classList.add('pageTransitionOut')
         pageLeave()
         return timeout.then(() => {
@@ -109,12 +110,12 @@ var FadeTransition = Barba.BaseTransition.extend({
         var timeout = new Promise((resolve, reject) => setTimeout(resolve, 500))
 
         productAnimation.enter()
+        document.body.dispatchEvent(new Event('pageloaded'))
         pageEnter(this.newContainer)
 
         timeout.then(() => {
             this.newContainer.classList.remove('pageTransitionIn')
             this.done()
-            document.body.dispatchEvent(new Event('pageloaded'))
         })
     }
 })

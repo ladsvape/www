@@ -136,15 +136,22 @@ function initSmoke () {
             canvas.width = window.innerWidth
         })
 
-        document.addEventListener('mousemove', function (e) {
-            var x = e.clientX
-            var y = e.clientY
-            var n = 0.5
-            var t = Math.floor(Math.random() * 200) + 3800
-            party.addsmoke(x, y, n, t)
-        })
-        // Uncomment for a steady smoke at the bottom middle of the screen
-        // setInterval(() => party.addsmoke(window.innerWidth / 2, window.innerHeight, 1), 100)
+        // Smoke following the mouse cursor
+        // document.addEventListener('mousemove', function (e) {
+        //     var x = e.clientX
+        //     var y = e.clientY
+        //     var n = 0.5
+        //     var t = Math.floor(Math.random() * 200) + 3800
+        //     party.addsmoke(x, y, n, t)
+        // })
+
+        // Steady smoke at the bottom middle of the screen
+        // setInterval(() => {
+        //     party.addsmoke(window.innerWidth / 2 - 300,
+        //         200, 1, Math.floor(Math.random() * 200) + 3800)
+        //     party.addsmoke(window.innerWidth / 2 + 300,
+        //         200, 1, Math.floor(Math.random() * 200) + 3800)
+        // }, 100)
     } catch (e) { console.error('smoke failed', e) }
 }
 

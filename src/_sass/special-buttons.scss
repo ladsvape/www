@@ -1,0 +1,72 @@
+/* Newsletter btn, Snipcart btn, 18+ btn */
+
+#newsletter {
+	h1,h2,h3,h4,h5,h6 {
+		text-align: center;
+		width: 100%;
+	}
+
+	.info {
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	.newsletter-errors {
+		width: 100%;
+	}
+}
+
+#newsletter:target {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+#plus18:target {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+a.cart.snipcart-checkout[data-loading="true"] {
+	pointer-events: none;
+	position:relative;
+	color: rgba(0,0,0,0.3)
+}
+
+a.cart.snipcart-checkout[data-loading="true"]::before {
+	opacity: 1;
+	content: '';
+	box-sizing: border-box;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 20px;
+	height: 20px;
+	margin-top: -10px;
+	margin-left: -10px;
+	border-radius: 50%;
+	border: 2px solid #ccc;
+	border-top-color: #333;
+	animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#snipcart-close {
+	position: absolute;
+	top: 2.85em;
+    right: 2em;
+    z-index: 1;
+	font-size: 12px;
+}
+
+#snipcart-cartitems-continue-top {
+	z-index: 2;
+}

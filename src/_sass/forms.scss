@@ -1,0 +1,168 @@
+.button a,
+.button button,
+.btn,
+input[type=submit],
+.btn.small,
+select {
+	color: #333;
+	text-decoration: none;
+	background: $brand-color;
+	border: 1px solid lighten($brand-color, 10%);
+	-webkit-appearance: none;
+}
+
+.button a,
+.button button,
+.btn,
+input[type=submit] {
+	padding: 15px 30px;
+	border-radius: 3px;
+}
+
+.btn.small {
+	padding: 10px;
+	border-radius: 3px;
+	border: 0;
+}
+
+select {
+	border-radius: 3px;
+	border: 1px solid lighten($brand-color, 10%);
+}
+
+.button a:disabled,
+.button button:disabled,
+.btn:disabled,
+input[type=submit]:disabled,
+select:disabled {
+	background: grey;
+}
+
+.button a:hover,
+.button button:hover,
+.btn:hover,
+select:hover,
+input[type=submit]:hover:enabled {
+	background: darken($brand-color, 10%);
+	cursor: pointer;
+}
+
+.button a:active,
+.button button:active,
+.btn,
+input[type=submit]:active:enabled {
+	border-width: 1px;
+	border-top: 3px solid transparent
+}
+
+.button.alt a {
+	background: rgba(255,255,255,0.15);
+	border-radius: 3px;
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	padding: 16px 50px;
+}
+
+.button.alt a:hover {
+	background: #fff;
+	color: $brand-color;
+}
+
+textarea, input, button, select { font-family: inherit; font-size: inherit; }
+
+input[type=submit] {
+	margin: 20px 0 0 0;
+}
+
+label, input, textarea, select {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+label.inline {
+	display: inline;
+}
+
+input[type="checkbox"] {
+	width: auto;
+    display: inline;
+}
+
+.radio-input {
+	line-height: 1;
+	margin: 20px 0;
+	cursor: pointer;
+
+	input {
+		display: inline-block;
+		width: auto;
+		cursor: pointer;
+	}
+}
+
+textarea {
+	resize: vertical;
+	height: 150px;
+}
+
+label {
+	margin: 20px 0 5px 0;
+}
+
+label:first-child {
+	margin: 0 0 5px 0;
+}
+
+label:last-child, input:last-child {
+	margin-bottom: 0;
+}
+
+input, textarea, select {
+	padding: 10px;
+	font-size: 1em;
+}
+
+input, textarea {
+	outline: none;
+	border: 1px solid #DDDDDD;
+}
+
+input:focus, input:focus, input:focus, textarea:focus {
+	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+	border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.input-label {
+	display: flex;
+
+	input, select {
+		flex: 1 1 auto;
+		width: inherit;
+		min-width: 0px;
+	}
+
+	label, span {
+		white-space: nowrap;
+		margin: 0;
+		flex: 0;
+		align-self: center;
+		padding-right: 10px;
+	}
+}
+
+.left-right-range {
+	display:flex;
+	flex-wrap: nowrap;
+
+	> * {
+		flex: 1;
+	}
+
+	*:first-child, *:last-child {
+		flex: 0;
+		align-self:center;
+		margin:0;
+	}
+}
+
+@import "mixins/forms_inputrange.scss";

@@ -3,15 +3,15 @@ layout: default
 ---
 <div>
 <div class="container">
-	<div class="product-container">
-		{% include product-image.html product=page type='dest' %}
-		<div class="product-details" id="add">
-			<h3>{{ page.name }} - ${{ page.price }}</h3>
-			{{ page.description_markdown | markdownify }}
+<div class="product-container">
+	{% include product-image.html product=page type='dest' %}
+	<div class="product-details" id="add">
+		<h3>{{ page.name }} - ${{ page.price }}</h3>
+		{{ page.description_markdown | markdownify }}
 
-			<div style="max-width: 200px" class="form-with-input-label">
-			
-			<label for="size">Size</label>
+		<div class="twogrid" style="grid-template-columns: 100px 150px">
+
+			<label style="margin: 0">Size</label>
 			<select data-for="{{ page.sku }}" data-option="1" name="size">
 				{% for size in page.sizes %}
 					{% assign str = size | split: '[' %}
@@ -19,29 +19,25 @@ layout: default
 					<option value="{{ value }}" {% if value == page.defaultsize %}selected{% endif %}>{{ size }}</option>
 				{% endfor %}
 			</select>
-			</div>
 
-			<br>
+			<span style="grid-column: span 2;padding-top:10px"></span>
 
-			<div style="max-width: 200px" class="form-with-input-label">
-			<label for="quantity">Quantity</label>
+			<label style="margin: 0" class="input-label">Quantity</label>
 			<select data-for="{{ page.sku }}" name="quantity">
 				{% for q in (1..page.maxquantity) %}
 					<option {% if q == 1 %}selected{% endif %}>{{ q }}</option>
 				{% endfor %}
 			</select>
-			</div>
 
-			<br>
+			<span style="grid-column: span 2;padding-top:10px"></span>
 
-
-			<div class="button">
+			<div class="button" style="grid-column: span 2">
 				{% assign colors = "" %}
 				{% for style in page.styles %}
 					{% assign colors = colors | append: '|' | append: style.name %}
 				{% endfor %}
 				{% assign colors = colors | remove_first: '|' %}
-				<button class="snipcart-add-item"
+				<button class="snipcart-add-item" style="width: 100%"
 					data-item-name="{{ page.name }}"
 					data-item-id="{{ page.sku }}"
 					data-item-image="{{ page.styles.first.image }}"
@@ -56,7 +52,10 @@ layout: default
 			</div>
 
 		</div>
-	</div>
-	<div id="disqus_thread"></div>
-</div>
+
+		<div id="disqus_thread"></div>
+
+	</div><!--product details-->
+</div><!--product-container-->
+</div><!--container-->
 </div>

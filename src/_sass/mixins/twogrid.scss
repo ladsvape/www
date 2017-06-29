@@ -1,0 +1,28 @@
+.twoflex {
+    display: flex;
+    flex-wrap: wrap;
+}
+.twoflex > * { margin: 0 10px; }    
+.twoflex > :first-child {
+    margin-left: 0;
+    min-width:150px;
+    flex: 1 1 150px;
+}
+.twoflex > :last-child {
+    flex: 2 0 200px;
+    margin-right: 0;
+}
+
+.twogrid {
+	display: grid;
+    grid-template-columns: auto auto;
+    align-items: center;
+    align-content: start;
+}
+
+.threegrid {
+	display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+    align-content: start;
+}

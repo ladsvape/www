@@ -30,6 +30,5 @@ __Hi, Does it contain nicotine and if not where can I get nicotine?__
 Hi Torben, Nicotine at of this moment cannot be sold to the public of New Zealand.
 But, If you Email us at:
 Ladsvape@gmail.com
-We can send it to our branch, not bound to NZ Laws [Secrete Base] and have it Nic up and send it to you free of charge with no waste of time.
-The consentration we offer is 3mg to all juices as anything more is too strong and too less is not registrable to the human body for pleasure.
+We can direct you to our global supplier that will be able to help.
 
